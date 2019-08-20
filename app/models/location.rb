@@ -7,4 +7,5 @@ class Location < ApplicationRecord
   validates :size, presence: true
   validates :description, presence: true
   validates :price, presence: true
+  mount_uploader :photo, PhotoUploader
 end

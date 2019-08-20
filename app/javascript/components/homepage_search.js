@@ -3,7 +3,7 @@ function Search() {
   var input, filter, ul, a, i, txtValue;
   input = document.getElementById("searchbar");
   filter = input.value.toUpperCase();
-  ul = document.getElementById("myUL");
+  ul = document.getElementById("container");
   label = ul.getElementsByTagName("li");
 
   // Loop through all table rows, and hide those who don't match the search query
