@@ -1,11 +1,37 @@
+<html>
+<head>
+  <link rel="stylesheet" href="../../../assets/stylesheets/pages/_home.scss">
+  <link rel="stylesheet" href="../../../assets/stylesheets/pages/_repo.scss">
+   <meta charset="UTF-8">
+   <title>Sweet Location</title>
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+  <div class="nav-container">
+    <a id="header_link home" class="navbar-brand" href="/locations">
+      <%= image_tag('logo_white.png', witdth: 60, height: 80, alt: "logo") %>
+    </a>
+    <div>
+      <a class="search" href="/search">
+      </a>
+      <a id="header_link_Login" class="login/signup" href="/login">Login
+      </a>
+      <a class="sign-up" href="/signup">Sign Up
+      </a>
+  </div>
+</div>
+
+<%= image_tag('livingroom.jpeg', alt: "User's location", class: 'listingpicture') %>
+
+<div class="container2">
 <h1><%=@location.title%></h1>
-
 <p>Description: <%=@location.description%></p>
-
 <ul>
   <li>Address: <%=@location.address%></li>
-  <li>Size: <%=@location.size%></li>
-  <li>Price: <%=@location.price%></li>
+  <li>Size: <%=@location.size%> sq m</li>
+  <li>Price: € <%=@location.price%></li>
 </ul>
   <h3>Tags: </h3>
   <ol>
@@ -13,39 +39,34 @@
   <li><%="#" + tags%>
     <%end%>
  </ol>
-
 <%=link_to "Edit your Location", edit_location_path(@location)%>
 <%=link_to "Go back to the Locations", root_path%>
 <%= link_to "Delete", location_path(@location), :confirm => "Are you sure?", :method => :delete %>
-
-<div>
-  <%= image_tag('avatar.png', witdth: 40, height: 40, alt: "User's avatar") %>
-  <p><%=@user.first_name%></p>
-
-  <!-- button for text owner -->
-  <a href="google.com">text owner</a>
-  <p>€ <%=@location.price%></p>
-  <!-- location dates -->
-
-  <!--  start booking button  -->
 </div>
 
+<div class="container2">
+  <%= image_tag('avatar.png', witdth: 40, height: 40, alt: "User's avatar") %>
+  <p><%=@user.first_name%></p>
+  <!-- button for text owner -->
+
+<div class="container2">
   <%= form_for [@location, @booking] do |f| %>
     <div class="form-group">
       <%= f.label :type_of_party %>
       <%= f.text_field :type_of_party, class: 'form-control' %>
     </div>
-
     <div class="form-group">
       <%= f.label :start_time %>
       <%= f.datetime_field :start_time, class: 'form-control' %>
     </div>
-
     <div class="form-group">
       <%= f.label :end_time %>
       <%= f.datetime_field :end_time, class: 'form-control' %>
     </div>
-
     <%= f.submit class: 'btn btn-warning' %>
   <% end %>
+  </div>
 </div>
+</body>
+</html>
+
