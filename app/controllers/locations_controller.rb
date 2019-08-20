@@ -2,6 +2,11 @@ class LocationsController < ApplicationController
   def index
     @locations = Location.all
   end
+
+  def search
+    @locations = Location.find(params[:title])
+  end
+
   def new
     @location = Location.new
   end
@@ -22,7 +27,7 @@ class LocationsController < ApplicationController
       render :new
     end
   end
-  
+
   def edit
     @location = Location.find(params[:id])
   end
@@ -35,7 +40,7 @@ class LocationsController < ApplicationController
     else
       render :edit
     end
-  end 
+  end
 
   def destroy
    @location = Location.find(params[:id])
