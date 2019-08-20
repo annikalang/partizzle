@@ -19,12 +19,11 @@
 <%= link_to "Delete", location_path(@location), :confirm => "Are you sure?", :method => :delete %>
 
 <div>
-  <!-- create avatar for user -->
-  <img src="avatar.png" alt="user's avatar" class="avatar">
+  <%= image_tag('avatar.png', witdth: 40, height: 40, alt: "User's avatar") %>
   <p><%=@user.first_name%></p>
 
   <!-- button for text owner -->
-  <a href="url">text owner</a>
+  <a href="google.com">text owner</a>
   <p>€ <%=@location.price%></p>
   <!-- location dates -->
 
@@ -47,6 +46,6 @@
       <%= f.datetime_field :end_time, class: 'form-control' %>
     </div>
 
-    <%= f.submit class: 'btn btn-primary' %>
+    <%= f.submit class: 'btn btn-warning' %>
   <% end %>
 </div>
