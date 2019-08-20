@@ -3,11 +3,59 @@
 #
 # Examples:
 #
-puts 'Creating restaurants...'
-user = User.create(email:"juansolano1034@gmail.com",password:"123456",phone_number: "4157699904",first_name:"Juan",last_name:"Solano")
-user1 = User.create(email:"annika1034@gmail.com",password:"1234567",phone_number: "4157699908",first_name:"Annika",last_name:"Lang")
-Location.create(user: user1,address: "10 theodorus Magistrat",title: "dungeon for rent",size: 100,description: "Amazing place for crazy parties",price: 300,tags: ["open","big","space"])
-Location.create(user: user,address: "40 theodorus Magistrat",title: "casttle for rent",size: 100,description: "Amazing place",price: 400,tags: ["tall","historic","space"])
+
+require 'faker'
+Booking.destroy_all
+Location.destroy_all
+User.destroy_all
+
+puts 'Creating seeds for user,location and booking...'
+
+mails = ["test@test.org", "test@test.de", "test@test.com", "test@test.us", "test@test.net"]
+
+mails.each do |mail|
+  user = User.new(
+    email: mail,
+    password: "123456",
+    phone_number: Faker::PhoneNumber.phone_number_with_country_code,
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name ,
+  )
+  user.save!
+end
+
+20.times do
+  location = Location.new(
+    user: User.all.sample,
+    address: Faker::Address.full_address,
+    title: Faker::House.room,
+    size: rand(100..300),
+    description: Faker::Lorem.paragraph,
+    price: rand(100..500),
+    tags: Faker::Hipster.words
+  )
+  location.save!
+end
+
+5.times do
+  booking = Booking.new(
+    type_of_party: User.all.sample,
+    user: User.find(83),
+    location: Location.all.sample,
+    start_time: Time.at(0.0 + rand * (Time.now.to_f - 0.0.to_f)),
+    end_time: Time.at(0.0 + rand * (Time.now.to_f - 0.0.to_f)),
+    status: ["confirmed", "rejected", "pending"].sample,
+  )
+  booking.save!
+end
+
+
+
+# user = User.create(email:"juansolano1034@gmail.com",password:"123456",phone_number: "4157699904",first_name:"Juan",last_name:"Solano")
+# user1 = User.create(email:"annika1034@gmail.com",password:"1234567",phone_number: "4157699908",first_name:"Annika",last_name:"Lang")
+# Location.create(user: user1,address: "10 theodorus Magistrat",title: "dungeon for rent",size: 100,description: "Amazing place for crazy parties",price: 300,tags: ["open","big","space"])
+# Location.create(user: user,address: "40 theodorus Magistrat",title: "casttle for rent",size: 100,description: "Amazing place",price: 400,tags: ["tall","historic","space"])
+
 puts 'Finished!'
 
 

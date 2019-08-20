@@ -15,9 +15,9 @@
       <%= image_tag('logo_white.png', witdth: 40, height: 50, alt: "logo") %>
     </a>
     <div>
-      <a id="header_link_Login" class="login/signup" href="/login">Login
+
       </a>
-      <a class="sign-up" href="/signup">Sign Up
+      <a class="sign-up" href="users/sign_up">Sign Up
       </a>
   </div>
 </div>
@@ -45,11 +45,16 @@
   </div>
 </div>
 
-<ul>
+<input type="text" id="searchbar">
+<div id="container">
+<ul id="myUL">
   <%@locations.each do |location|%>
-  <li><%=link_to location.title, location_path(location)%></li>
-  <%end%>
+    <%= cl_image_tag location.photo, height: 300, width: 400, crop: :fill %>
+    <li class="locations"><%=link_to location.title, location_path(location)%></li>
+    <%end%>
 </ul>
+</div>
  <button><%=link_to "Create Location", new_location_path%></button>
+
 </body>
 </html>

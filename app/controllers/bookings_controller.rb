@@ -3,17 +3,17 @@ class BookingsController < ApplicationController
     @bookings = Booking.all
   end
 
-
   def create
-    @booking = Booking.new
-    @booking.location = Location.find(params[:location_id])
-    @booking.start_time = Date.parse(create_params[:start_time])
-    @booking.end_time = Date.parse(create_params[:end_time])
-    @booking.type_of_party = create_params[:type_of_party]
+    @booking = Booking.new(create_params)
+    @location = Location.find(params[:location_id])
+    @booking.location = @location
     @booking.user = current_user
     @booking.status = "pending"
-    @booking.save!
-    redirect_to location_path(@booking.location)
+    if @booking.save!
+      redirect_to dashboard_path
+    else
+      render :new
+    end
   end
 
   private
