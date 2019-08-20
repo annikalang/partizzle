@@ -9,3 +9,5 @@ user1 = User.create(email:"annika1034@gmail.com",password:"1234567",phone_number
 Location.create(user: user1,address: "10 theodorus Magistrat",title: "dungeon for rent",size: 100,description: "Amazing place for crazy parties",price: 300,tags: ["open","big","space"])
 Location.create(user: user,address: "40 theodorus Magistrat",title: "casttle for rent",size: 100,description: "Amazing place",price: 400,tags: ["tall","historic","space"])
 puts 'Finished!'
+
+
