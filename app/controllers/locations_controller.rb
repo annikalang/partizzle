@@ -5,10 +5,13 @@ class LocationsController < ApplicationController
   def new
     @locations = Location.new
   end
+
   def show
+    @booking = Booking.new
     @location = Location.find(params[:id])
     @user = @location.user
   end
+
   def create
      @location = Location.find(params[:id])
      @location = Location.new(locations_params)
