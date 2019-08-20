@@ -3,12 +3,15 @@ class PagesController < ApplicationController
   end
 
   def dashboard
-    @my_bookings = current_user.bookings
-    @my_locations = current_user.locations
     bookings = Booking.all
-    @pending = []
+    @my_locations = current_user.locations
+    @my_bookings = []
+    @received_bookings = []
     bookings.each do |booking|
-      @pending << booking if booking.user == current_user
+      @my_bookings << booking if booking.user == current_user
+      current_user.locations.each do |location|
+        @received_bookings << booking if location == booking.location
+      end
     end
   end
 end

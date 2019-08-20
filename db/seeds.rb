@@ -40,7 +40,7 @@ end
 5.times do
   booking = Booking.new(
     type_of_party: User.all.sample,
-    user: User.all.sample,
+    user: User.find(83),
     location: Location.all.sample,
     start_time: Time.at(0.0 + rand * (Time.now.to_f - 0.0.to_f)),
     end_time: Time.at(0.0 + rand * (Time.now.to_f - 0.0.to_f)),
@@ -48,6 +48,8 @@ end
   )
   booking.save!
 end
+
+
 
 # user = User.create(email:"juansolano1034@gmail.com",password:"123456",phone_number: "4157699904",first_name:"Juan",last_name:"Solano")
 # user1 = User.create(email:"annika1034@gmail.com",password:"1234567",phone_number: "4157699908",first_name:"Annika",last_name:"Lang")
