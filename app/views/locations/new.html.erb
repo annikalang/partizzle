@@ -5,15 +5,15 @@
       <h1>List a new location:</h1>
 
       <%= simple_form_for @location do |l| %>
-        <%= f.input :title %>
-        <%= f.input :address %>
-        <%= f.input :description %>
-        <%= f.input :size %>
-        <%= f.input :price%>
-        <%= f.input :tags%>
-        <%= f.input :photo %>
-        <%= f.input :photo_cache, as: :hidden %>
-        <%= f.button :submit, class: 'btn btn-warning' %>
+        <%= l.input :title %>
+        <%= l.input :address %>
+        <%= l.input :description %>
+        <%= l.input :size %>
+        <%= l.input :price%>
+        <%= l.input :tags%>
+        <%#= l.input :photo %>
+        <%#= l.input :photo_cache, as: :hidden %>
+        <%= l.button :submit, class: 'btn btn-warning' %>
       <% end %>
     </div>
   </div>
