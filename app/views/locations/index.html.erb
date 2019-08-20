@@ -1,7 +1,41 @@
-<h1>Partizzle Listings</h1>
+<html>
+<head>
+  <link rel="stylesheet" href="../../../assets/stylesheets/pages/_home.scss">
+  <meta charset="UTF-8">
+  <title>Home</title>
+  <!-- We need this line below for responsiveness! -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+
+<div class="nav-container">
+    <a id="header_link home" class="navbar-brand" href="/locations">
+      <%= image_tag('logo_white.png', witdth: 60, height: 80, alt: "logo") %>
+    </a>
+    <div>
+      <a class="search" href="/search">
+      </a>
+      <a id="header_link_Login" class="login/signup" href="/login">Login
+      </a>
+      <a class="sign-up" href="/signup">Sign Up
+      </a>
+  </div>
+</div>
+
+<div class="banner">
+  <div class="container1">
+    <h1>Book your party location now!</h1>
+    <form>
+    </form>
+  </div>
+</div>
 
 <ul>
   <%@locations.each do |location|%>
   <li><%=location.title%></li>
   <%end%>
 <ul>
+</body>
+</html>
