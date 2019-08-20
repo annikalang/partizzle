@@ -2,13 +2,14 @@ class LocationsController < ApplicationController
   def index
     @locations = Location.all
   end
-
   def new
     @location = Location.new
   end
 
   def show
+    @booking = Booking.new
     @location = Location.find(params[:id])
+    @user = @location.user
   end
 
   def create
@@ -21,7 +22,7 @@ class LocationsController < ApplicationController
       render :new
     end
   end
-
+  
   def edit
     @location = Location.find(params[:id])
   end
@@ -34,16 +35,12 @@ class LocationsController < ApplicationController
     else
       render :edit
     end
-  end
+  end 
 
   def destroy
    @location = Location.find(params[:id])
    @location.destroy
    redirect_to root_path
-  end
-
-  def set_params
-    @location = Location.find(params[:id])
   end
 
    def locations_params
