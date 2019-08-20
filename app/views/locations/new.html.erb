@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <h1>Add a new location:</h1>
+
+      <%= simple_form_for @location do |l| %>
+        <%= f.input :title %>
+        <%= f.input :address %>
+        <%= f.input :description %>
+        <%= f.input :size %>
+        <%= f.input :price%>
+        <%= f.input :tags%>
+
+
+        <%= f.button :submit, class: 'btn btn-primary' %>
+      <% end %>
+    </div>
+  </div>
+</div>
