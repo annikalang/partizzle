@@ -1,0 +1,20 @@
+<div>
+  <%= form_for [@location, @booking] do |f| %>
+    <div class="form-group">
+      <%= f.label :type_of_party %>
+      <%= f.text_field :type_of_party, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :start_time %>
+      <%= f.datetime_field :start_time, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :end_time %>
+      <%= f.datetime_field :end_time, class: 'form-control' %>
+    </div>
+
+    <%= f.submit class: 'btn btn-primary' %>
+  <% end %>
+</div>

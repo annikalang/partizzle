@@ -7,6 +7,11 @@ class LocationsController < ApplicationController
     @locations = Location.new
   end
 
+  def show
+    @booking = Booking.new
+    @location = Location.find(params[:id])
+  end
+
   def create
 
   end
