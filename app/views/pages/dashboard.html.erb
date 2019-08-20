@@ -1,0 +1,29 @@
+<h1>this is your dashboard</h1>
+
+<h2>Bookings for your place</h2>
+
+<% @pending.each do |b| %>
+<p><%= b.user.first_name %> <%= b.user.last_name %> wants to throw a <%= b.type_of_party %> party</p>
+<p><%= b.location.title %></p>
+<p><%= b.location.address %></p>
+<p><%= b.location.size %> sqm</p>
+<p><%= b.location.price %>,00 €</p>
+<p><%= b.start_time %></p>
+<p><%= b.end_time %></p>
+<p><%= b.status %></p>
+<% end %>
+
+<h2>Bookings you made</h2>
+<% @my_bookings.each do |b| %>
+<p>You want to throw a <%= b.type_of_party %> party</p>
+<p><%= b.location.title %></p>
+<p><%= b.location.address %></p>
+<p><%= b.location.size %> sqm</p>
+<p><%= b.location.price %>,00 €</p>
+<p><%= b.start_time %></p>
+<p><%= b.end_time %></p>
+<p><%= b.status %></p>
+<% end %>
+
+
+
