@@ -1,1 +1,45 @@
 // Specific CSS for your home-page
+
+.nav-container {
+  background-color: white;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-container a {
+  float: left;
+  color: grey;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.nav-container a:hover {
+  color: lightblue;
+}
+
+.nav-container a.active {
+  color: blue;
+}
+
+.banner {
+  background-image: url(https://images.unsplash.com/photo-1497414146483-5bcafdccfdff?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80);
+  background-size: cover;
+  /*object-fit: cover;*/
+  width: max-width;
+  height: 300px;
+  background-position: center;
+  /*padding: 200px 0;*/
+  background-repeat: no-repeat;
+  padding-bottom: 100px;
+}
+
+.container1 {
+  padding-left: 40px;
+  padding-bottom: 80px;
+  color: #F26A8D;
+  padding-top: 10px;
+}
