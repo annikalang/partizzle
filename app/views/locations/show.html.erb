@@ -1,12 +1,22 @@
-<div>
-  <h1><%=@location.title%></h1>
-   <%= link_to "Back to all locations", root_path %>
-  <br>
-  <h3><%=@location.address%></h3>
-  <p><%=@location.description%></p>
-  <p><%=@location.tags%></p>
-  <p><%=@location.size%> sq m</p>
-</div>
+<h1><%=@location.title%></h1>
+
+<p>Description: <%=@location.description%></p>
+
+<ul>
+  <li>Address: <%=@location.address%></li>
+  <li>Size: <%=@location.size%></li>
+  <li>Price: <%=@location.price%></li>
+</ul>
+  <h3>Tags: </h3>
+  <ol>
+  <%@location.tags.each do |tags|%>
+  <li><%="#" + tags%>
+    <%end%>
+ </ol>
+
+<%=link_to "Edit your Location", edit_location_path(@location)%>
+<%=link_to "Go back to the Locations", root_path%>
+<%= link_to "Delete", location_path(@location), :confirm => "Are you sure?", :method => :delete %>
 
 <div>
   <!-- create avatar for user -->
@@ -40,4 +50,3 @@
     <%= f.submit class: 'btn btn-primary' %>
   <% end %>
 </div>
-
