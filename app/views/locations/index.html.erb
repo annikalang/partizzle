@@ -36,24 +36,22 @@
     <h1>Book now!</h1>
     <h3>Find your favourite party location!</h3>
 
-      <form action="/results">
-        <div class=choices>
-          <div class="choices_inner">
-            <input class="form-control" type="text" name="search" placeholder="Type to search..." style=" width:400px;" autocomplete="on">
-            <button class="btn-search" type="button">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z">
-                </path>
-              </svg>
-            </button>
-          </div>
+      <form action="" id="myform" style="width: 100%;">
+        <div class="choices">
+        <input id="searchbar" class="aform" type="text" name="search" placeholder="Type to search..." style="flex-grow: 1;" autocomplete="on">
+          <button class="abutton" type="button">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+              <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z">
+              </path>
+            </svg>
+          </button>
         </div>
       </form>
 
-    <button class="myButton">Get inspired!</button>
+    <!-- <button class="myButton">Get inspired!</button> -->
   </div>
 
-<input type="text" id="searchbar">
+<!-- <input type="text" id="searchbar"> -->
 <div id="container">
 <ul id="myUL">
   <%@locations.each do |location|%>
@@ -64,5 +62,30 @@
 </div>
  <button><%=link_to "Create Location", new_location_path%></button>
 
+<div class="column">
+  <div class="row">
+    <div class="card">
+      <img src="https://picsum.photos/200">
+      <ul class="details">
+        <li class="title">Location</li>
+        <li class="description">This is a cool place</li>
+        <li class="price">500,00€</li>
+      </ul>
+    </div>
+  </div>
+  <div class="row">
+    <div class="card">
+      <img src="https://picsum.photos/200">
+      <ul class="details">
+        <li class="title">Location</li>
+        <li class="description">This is a cool place</li>
+        <li class="price">500,00€</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
 </body>
 </html>
+

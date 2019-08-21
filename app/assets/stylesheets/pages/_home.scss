@@ -1,4 +1,16 @@
 // Specific CSS for your home-page
+$purple:  #AA53F2;
+$purple2: #7A53EF;
+$yellow: #FADF32;
+$yellow2: #F9B731;
+$surfacegrey: #F8F9FA;
+$textgrey: #4B4B4B;
+$rederror: #B00020;
+
+html {
+    background: #F8F9FA;
+    color: #4B4B4B;
+}
 
 .nav-container {
   background-color: white;
@@ -10,7 +22,7 @@
 
 .nav-container a {
   float: left;
-  color: grey;
+  color: #4B4B4B;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
@@ -18,16 +30,13 @@
 }
 
 .nav-container a:hover {
-  color: lightblue;
-}
-
-.nav-container a.active {
-  color: blue;
+  color: #F9B731;
 }
 
 .banner {
   background-size: cover;
-  background-image: linear-gradient(90deg, rgba(5,5,20,0.7) 40%, rgba(0,0,0,0) 100%), url("https://images.unsplash.com/photo-1497414146483-5bcafdccfdff?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80");
+  // background-image: linear-gradient(90deg, rgba(8,5,20,0.4) 20%, rgba(0,0,0,0) 100%), url("https://images.unsplash.com/photo-1497414146483-5bcafdccfdff?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80");
+  background-image: url("https://images.unsplash.com/photo-1497414146483-5bcafdccfdff?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80");
   // object-fit: cover;
   width: max-width;
   height: 400px;
@@ -37,40 +46,50 @@
   padding-bottom: 100px;
   opacity: 0.8;
   position: relative;
-  text-align: left;
+  text-align: center;
   color: white;
 }
 
 .container1 {
-  padding-left: 20px;
-  padding-bottom: 80px;
-  color: pink;
-  padding-top: 20px;
+  padding: 60px 40px 80px 40px;
+  color: #2e2e2e;
+  background-color: silver;
+  background-color: hsla(0, 0%, 100%, 0.4);
+  height: 400px;
 }
-
-// input {
-//   width: 20%;
-//   height: 20%;
-//   // margin: 8px;
-//   margin-top: 15px;
-//   border: 1px solid;
-//   border-radius: 6px;
-//   padding: 5px;
-// }
 
 .choices {
   display: flex;
+  align: center;
+  flex-wrap: wrap;
+  flex-align: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 50px;
 }
 
-.choices_inner {
+.aform {
   display: flex;
-  border-radius: 3px;
+  border-bottom-left-radius: 40px;
+  border-top-left-radius: 40px;
+  height: 60px;
+  border: transparent;
+  padding-left: 20px;
 }
 
-.btn-search {
+.aform:focus {
+  outline: none;
+}
+
+.abutton {
+  border-bottom-right-radius: 40px;
+  border-top-right-radius: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 60px;
+  border: transparent;
+  padding-right: 20px;
 }
 
 .myButton {
@@ -80,5 +99,13 @@
   background-color: #FADF32;
   border: 1px solid #F9b732;
   border-radius: 6px;
+}
+
+.card {
+  display: flex;
+}
+
+.details {
+  color: black;
 }
 
