@@ -24,7 +24,7 @@ html {
   float: left;
   color: #4B4B4B;
   text-align: center;
-  padding: 14px 16px;
+  padding: 0px 16px;
   text-decoration: none;
   font-size: 17px;
 }
@@ -52,23 +52,46 @@ html {
 
 .container1 {
   padding: 60px 40px 80px 40px;
-  color: #2e2e2e;
+  color: #171717;
   background-color: silver;
   background-color: hsla(0, 0%, 100%, 0.4);
   height: 400px;
 }
 
-.card{
-  display: grid;
+.cards{
   height: 200px;
-  grid-column-gap: 10px;
-  grid-row-gap: 50px;
-  padding: 10px 10px;
   margin-top: 45px;
+  // background-color: hsla(0, 0%, 100%, 0.4);
+  background-image: url("https://picsum.photos/200/300");
+  background-repeat: no-repeat;
+  background-color: #F8F9FA;
+  box-shadow: 0px 0px 0px 3px;
 }
 
-a{
-  color: #f8f9fa;
+.cards-description {
+  padding-left: 220px;
+  padding-top: 20px;
+}
+
+.cards-description a {
+  color: #4B4B4B;
+}
+
+.cards-description h2 {
+  text-align: left;
+}
+
+.cards-description p {
+  text-align: left;
+  color: #4B4B4B;
+  font-size: 13px;
+}
+
+.cards-description h6 {
+  text-align: right;
+  color: #4B4B4B;
+  padding-right: 20px;
+  padding-top: 30px;
 }
 
 // input {
@@ -114,12 +137,91 @@ a{
   padding-right: 20px;
 }
 
-.myButton {
-  margin-left: 72%;
-  margin-top: 120px;
-  padding: 5px 20px;
-  background-color: #FADF32;
-  border: 1px solid #F9b732;
-  border-radius: 6px;
+#create {
+  margin: 40px;
 }
 
+.but {
+  border: 1px solid transparent;
+  border-radius: 15px;
+  text-decoration: none;
+  color: #4B4B4B;
+  font-weight: bold;
+  padding: 8px 10px;
+  background-color: #FADF32;
+  font-size: 14px;
+  box-shadow: -2px 2px 3px -1px #c8b228;
+}
+
+.but:hover {
+  text-decoration: none;
+  background-color: #F9b732;
+  color: #4B4B4B;
+}
+
+.container2 h1{
+ text-align: center;
+ margin-left: 60px;
+}
+
+.content{
+  font-family: 'Roboto', sans-serif;
+  font-size: 25px;
+  margin-top: 70px;
+}
+.total_components{
+  display: flex;
+  justify-content: space-between;
+}
+.container3{
+  margin-top: 30px;
+  margin-right: 20px;
+  padding: 30px 30px;
+  background-color: #eae9e9;
+}
+
+.show_body{
+  background-color: white;
+}
+.buttons{
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+.btn1{
+  color: white;
+  border: 1px solid #4A4A4A;
+  padding: 8px 24px;
+  border-radius: 50px;
+  font-weight: lighter;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+  background-color: black;
+  margin-right: 20px;
+}
+.btn2{
+  color: white;
+  border: 1px solid #4A4A4A;
+  padding: 8px 24px;
+  border-radius: 50px;
+  font-weight: lighter;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+  background-color: black;
+  margin-right: 20px;
+}
+
+.btn3{
+  color: white;
+  border: 1px solid #4A4A4A;
+  padding: 8px 24px;
+  border-radius: 50px;
+  font-weight: lighter;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+  background-color: black;
+}
+
+ul{
+  list-style-type: none;
+}

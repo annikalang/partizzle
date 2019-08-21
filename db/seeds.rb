@@ -27,7 +27,7 @@ end
 20.times do
   location = Location.new(
     user: User.all.sample,
-    address: Faker::Address.full_address,
+    address: "Overhoeksplein 2, 1031 KS Amsterdam",
     title: Faker::House.room,
     size: rand(100..300),
     remote_photo_url: "https://loremflickr.com/1024/768/party",
@@ -40,7 +40,8 @@ end
 
 5.times do
   booking = Booking.new(
-    type_of_party: "rooftop party",
+
+    type_of_party: "all you can damage",
     user: User.all.sample,
     location: Location.all.sample,
     start_time: Time.at(0.0 + rand * (Time.now.to_f - 0.0.to_f)),

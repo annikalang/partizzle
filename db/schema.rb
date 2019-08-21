@@ -38,9 +38,9 @@ ActiveRecord::Schema.define(version: 2019_08_21_095054) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "photo"
     t.decimal "location_lat"
     t.decimal "location_lng"
-    t.string "photo"
     t.index ["user_id"], name: "index_locations_on_user_id"
   end
 
