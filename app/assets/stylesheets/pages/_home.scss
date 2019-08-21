@@ -43,3 +43,16 @@
   color: #F26A8D;
   padding-top: 10px;
 }
+
+.card{
+  display: grid;
+  height: 200px;
+  grid-column-gap: 10px;
+  grid-row-gap: 50px;
+  padding: 10px 10px;
+  margin-top: 45px;
+}
+
+a{
+  color: #f8f9fa;
+}
