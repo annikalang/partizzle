@@ -30,6 +30,7 @@ end
     address: "Overhoeksplein 2, 1031 KS Amsterdam",
     title: Faker::House.room,
     size: rand(100..300),
+    remote_photo_url: "https://loremflickr.com/1024/768/party",
     description: Faker::Lorem.paragraph,
     price: rand(100..500),
     tags: Faker::Hipster.words
@@ -39,6 +40,7 @@ end
 
 5.times do
   booking = Booking.new(
+
     type_of_party: "all you can damage",
     user: User.all.sample,
     location: Location.all.sample,
