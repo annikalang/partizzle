@@ -11,7 +11,7 @@
 <body>
   <div class="nav-container">
     <a id="header_link home" class="navbar-brand" href="/locations">
-      <%= image_tag('logo_white.png', witdth: 60, height: 80, alt: "logo") %>
+      <%= cl_image_tag @location.photo, height: 300, width: 1200, crop: :fill %>
     </a>
     <div>
       <a class="search" href="/search">
@@ -23,7 +23,7 @@
   </div>
 </div>
 
-<%= image_tag('livingroom.jpeg', alt: "User's location", class: 'listingpicture') %>
+<%#= image_tag('livingroom.jpeg', alt: "User's location", class: 'listingpicture') %>
 
 <div class="container2">
 <h1><%=@location.title%></h1>

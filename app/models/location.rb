@@ -18,4 +18,5 @@ class Location < ApplicationRecord
     # longitude goes in self.longitude
     # DO NOT CALL self.save
   end
+  mount_uploader :photo, PhotoUploader
 end

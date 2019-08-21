@@ -30,6 +30,7 @@ end
     address: Faker::Address.full_address,
     title: Faker::House.room,
     size: rand(100..300),
+    remote_photo_url: "https://loremflickr.com/1024/768/party",
     description: Faker::Lorem.paragraph,
     price: rand(100..500),
     tags: Faker::Hipster.words
@@ -39,8 +40,8 @@ end
 
 5.times do
   booking = Booking.new(
-    type_of_party: User.all.sample,
-    user: User.find(83),
+    type_of_party: "rooftop party",
+    user: User.all.sample,
     location: Location.all.sample,
     start_time: Time.at(0.0 + rand * (Time.now.to_f - 0.0.to_f)),
     end_time: Time.at(0.0 + rand * (Time.now.to_f - 0.0.to_f)),
