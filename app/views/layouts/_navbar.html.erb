@@ -2,22 +2,45 @@
     <a id="header_link home" class="navbar-brand" href="/locations">
       <%= image_tag('logo_white.png', witdth: 40, height: 50, alt: "logo") %>
     </a>
-    <div>
-
-      <div class="align-baseline">
-        <ul id="horizontal-list">
+        <ul id="horizontal-list" class="list-inline">
           <% if user_signed_in? %>
-          <li><%= link_to'Dashboard', dashboard_path%></li>
+            <%= link_to dashboard_path do %>
+              <li>
+                <div class ="wrapper-gradient">
+                  <div class="btn-filled">
+                    Dashboard
+                  </div>
+                </div>
+              </li>
+            <% end %>
+            <%= link_to destroy_user_session_path, method: :delete do %>
+              <li>
+                <div class="wrapper-gradient">
+                  <div class="btn-filled">
+                    Log out
+                  </div>
+                </div>
+              </li>
+            <% end %>
           <% else %>
-          <li><%= link_to('Register', new_user_registration_path) %></li>
-          <% end %>
-          <% if user_signed_in? %>
-          <li><%= link_to('Logout', destroy_user_session_path, method: :delete) %></li>
-          <% else %>
-          <li><%= link_to('Login', new_user_session_path) %></li>
+            <%= link_to new_user_session_path do %>
+              <li>
+                <div class="wrapper-gradient">
+                  <div class="btn-filled">
+                    Login
+                  </div>
+                </div>
+              </li>
+            <% end %>
+            <%= link_to new_user_registration_path do %>
+              <li>
+                <div class="wrapper-gradient">
+                  <div class="btn-filled">
+                    Register
+                  </div>
+                </div>
+              </li>
+            <% end %>
           <% end %>
         </ul>
-      </div>
-
-    </div>
   </div>
