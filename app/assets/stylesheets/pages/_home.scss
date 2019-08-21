@@ -159,18 +159,69 @@ html {
   color: #4B4B4B;
 }
 
-// .myButton {
-//   margin-left: 72%;
-//   margin-top: 120px;
-//   padding: 5px 20px;
-//   background-color: #FADF32;
-//   border: 1px solid #F9b732;
-//   border-radius: 6px;
-// }
+.container2 h1{
+ text-align: center;
+ margin-left: 60px;
+}
 
+.content{
+  font-family: 'Roboto', sans-serif;
+  font-size: 25px;
+  margin-top: 70px;
+}
+.total_components{
+  display: flex;
+  justify-content: space-between;
+}
+.container3{
+  margin-top: 30px;
+  margin-right: 20px;
+  padding: 30px 30px;
+  background-color: #eae9e9;
+}
 
+.show_body{
+  background-color: white;
+}
+.buttons{
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+.btn1{
+  color: white;
+  border: 1px solid #4A4A4A;
+  padding: 8px 24px;
+  border-radius: 50px;
+  font-weight: lighter;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+  background-color: black;
+  margin-right: 20px;
+}
+.btn2{
+  color: white;
+  border: 1px solid #4A4A4A;
+  padding: 8px 24px;
+  border-radius: 50px;
+  font-weight: lighter;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+  background-color: black;
+  margin-right: 20px;
+}
 
+.btn3{
+  color: white;
+  border: 1px solid #4A4A4A;
+  padding: 8px 24px;
+  border-radius: 50px;
+  font-weight: lighter;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+  background-color: black;
+}
 
-
-
-
+ul{
+  list-style-type: none;
+}
