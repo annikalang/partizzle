@@ -1,0 +1,23 @@
+  <div class="nav-container">
+    <a id="header_link home" class="navbar-brand" href="/locations">
+      <%= image_tag('logo_white.png', witdth: 40, height: 50, alt: "logo") %>
+    </a>
+    <div>
+
+      <div class="align-baseline">
+        <ul id="horizontal-list">
+          <% if user_signed_in? %>
+          <li><%= link_to'Dashboard', dashboard_path%></li>
+          <% else %>
+          <li><%= link_to('Register', new_user_registration_path) %></li>
+          <% end %>
+          <% if user_signed_in? %>
+          <li><%= link_to('Logout', destroy_user_session_path, method: :delete) %></li>
+          <% else %>
+          <li><%= link_to('Login', new_user_session_path) %></li>
+          <% end %>
+        </ul>
+      </div>
+
+    </div>
+  </div>

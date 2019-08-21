@@ -1,36 +1,3 @@
-  <div class="nav-container">
-    <a id="header_link home" class="navbar-brand" href="/locations">
-      <%= image_tag('logo_white.png', witdth: 40, height: 50, alt: "logo") %>
-    </a>
-    <div>
-
-      <div class="align-baseline">
-        <ul id="horizontal-list">
-          <% if user_signed_in? %>
-          <li>
-            <%= link_to'Dashboard', dashboard_path%>
-          </li>
-          <% else %>
-          <li>
-            <%= link_to('Register', new_user_registration_path) %>
-          </li>
-          <% end %>
-
-          <% if user_signed_in? %>
-          <li>
-            <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
-          </li>
-          <% else %>
-          <li>
-            <%= link_to('Login', new_user_session_path) %>
-          </li>
-          <% end %>
-        </ul>
-      </div>
-
-    </div>
-  </div>
-
 <div class="banner">
   <div class="container1">
     <h1>Book now!</h1>
@@ -51,41 +18,20 @@
     <!-- <button class="myButton">Get inspired!</button> -->
   </div>
 
-<!-- <input type="text" id="searchbar"> -->
-<div id="container">
-<ul id="myUL">
-  <%@locations.each do |location|%>
-    <%= cl_image_tag location.photo, height: 300, width: 400, crop: :fill %>
-    <li class="locations"><%=link_to location.title, location_path(location)%></li>
-    <%end%>
-</ul>
-</div>
- <button><%=link_to "Create Location", new_location_path%></button>
-
-<div class="column">
-  <div class="row">
-    <div class="card">
-      <img src="https://picsum.photos/200">
-      <ul class="details">
-        <li class="title">Location</li>
-        <li class="description">This is a cool place</li>
-        <li class="price">500,00€</li>
-      </ul>
-    </div>
-  </div>
-  <div class="row">
-    <div class="card">
-      <img src="https://picsum.photos/200">
-      <ul class="details">
-        <li class="title">Location</li>
-        <li class="description">This is a cool place</li>
-        <li class="price">500,00€</li>
-      </ul>
-    </div>
+<input type="text" id="searchbar">
+<div class="container">
+  <div class="row" id="row">
+    <%@locations.each do |location|%>
+      <div class="col-12">
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= cl_image_path location.photo, height: 300, width: 1000,crop: :fill %>)">
+          <div class="card-description">
+            <h2><%= link_to location.title, location_path(location)%></h2>
+          </div>
+        </div>
+        <div class="">
+      </div>
+      </div>
+    <% end %>
   </div>
 </div>
-
-
-</body>
-</html>
-
+<%=link_to "Create Location", new_location_path, class: "btn btn-warning" %>

@@ -58,6 +58,28 @@ html {
   height: 400px;
 }
 
+.card{
+  display: grid;
+  height: 200px;
+  grid-column-gap: 10px;
+  grid-row-gap: 50px;
+  padding: 10px 10px;
+  margin-top: 45px;
+}
+
+a{
+  color: #f8f9fa;
+}
+
+// input {
+//   width: 20%;
+//   height: 20%;
+//   // margin: 8px;
+//   margin-top: 15px;
+//   border: 1px solid;
+//   border-radius: 6px;
+//   padding: 5px;
+// }
 .choices {
   display: flex;
   align: center;
@@ -99,13 +121,5 @@ html {
   background-color: #FADF32;
   border: 1px solid #F9b732;
   border-radius: 6px;
-}
-
-.card {
-  display: flex;
-}
-
-.details {
-  color: black;
 }
 
