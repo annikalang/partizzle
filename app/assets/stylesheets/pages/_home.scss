@@ -26,23 +26,28 @@
 }
 
 .banner {
-  background-image: url(https://images.unsplash.com/photo-1497414146483-5bcafdccfdff?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80);
   background-size: cover;
-  /*object-fit: cover;*/
+  background-image: linear-gradient(90deg, rgba(5,5,20,0.7) 40%, rgba(0,0,0,0) 100%), url("https://images.unsplash.com/photo-1497414146483-5bcafdccfdff?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80");
+  // object-fit: cover;
   width: max-width;
-  height: 300px;
+  height: 400px;
   background-position: center;
   /*padding: 200px 0;*/
   background-repeat: no-repeat;
   padding-bottom: 100px;
+  opacity: 0.8;
+  position: relative;
+  text-align: left;
+  color: white;
 }
 
 .container1 {
-  padding-left: 40px;
+  padding-left: 20px;
   padding-bottom: 80px;
-  color: #F26A8D;
-  padding-top: 10px;
+  color: pink;
+  padding-top: 20px;
 }
+
 
 .card{
   display: grid;
@@ -56,3 +61,39 @@
 a{
   color: #f8f9fa;
 }
+
+// input {
+//   width: 20%;
+//   height: 20%;
+//   // margin: 8px;
+//   margin-top: 15px;
+//   border: 1px solid;
+//   border-radius: 6px;
+//   padding: 5px;
+// }
+
+.choices {
+  display: flex;
+}
+
+.choices_inner {
+  display: flex;
+  border-radius: 3px;
+}
+
+.btn-search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.myButton {
+  margin-left: 72%;
+  margin-top: 120px;
+  padding: 5px 20px;
+  background-color: #FADF32;
+  border: 1px solid #F9b732;
+  border-radius: 6px;
+}
+
+
