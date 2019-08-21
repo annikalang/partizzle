@@ -20,16 +20,22 @@
     <button class="myButton">Get inspired!</button>
   </div>
 
-<input type="text" id="searchbar">
-<div id="container">
-<ul id="myUL">
-  <%@locations.each do |location|%>
-    <%= cl_image_tag location.photo, height: 300, width: 400, crop: :fill %>
-    <li class="locations"><%=link_to location.title, location_path(location)%></li>
-    <%end%>
-</ul>
-</div>
- <button><%=link_to "Create Location", new_location_path%></button>
 
-</body>
-</html>
+<input type="text" id="searchbar">
+<div class="container">
+  <div class="row" id="row">
+    <%@locations.each do |location|%>
+      <div class="col-12">
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= cl_image_path location.photo, height: 300, width: 1000,crop: :fill %>)">
+          <div class="card-description">
+            <h2><%= link_to location.title, location_path(location)%></h2>
+          </div>
+        </div>
+        <div class="">
+      </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+<%=link_to "Create Location", new_location_path, class: "btn btn-warning" %>
+
