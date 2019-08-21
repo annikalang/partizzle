@@ -11,7 +11,7 @@
 <body>
   <div class="nav-container">
     <a id="header_link home" class="navbar-brand" href="/locations">
-      <%= cl_image_tag @location.photo, height: 300, width: 1200, crop: :fill %>
+      <%= image_tag('logo_white.png', witdth: 60, height: 80, alt: "logo") %>
     </a>
     <div>
       <a class="search" href="/search">
@@ -23,7 +23,7 @@
   </div>
 </div>
 
-<%#= image_tag('livingroom.jpeg', alt: "User's location", class: 'listingpicture') %>
+<%= image_tag('livingroom.jpeg', alt: "User's location", class: 'listingpicture') %>
 
 <div class="container2">
 <h1><%=@location.title%></h1>
@@ -69,19 +69,24 @@
 </div>
 
 <!-- insert real latitute, longitude -->
-<div id="map"></div>
+<!-- ximena's map code  -->
 
-
-<script src=<%= "https://maps.googleapis.com/maps/api/js?key=#{Rails.application.credentials.google_maps_api_key}&libraries=geometry" %>>
-</script>
-<script>
-  const locationLat = parseFloat(<%=  %>, 10)
-  const locationLng = parseFloat(<%=  %>, 10)
+<div id="mapcard">
+  <div id="map"><script src=<%= "https://maps.googleapis.com/maps/api/js?key=#{Rails.application.credentials.google_maps_api_key}&libraries=geometry" %>>
+  </script>
+  <script>
+  var locationLat = parseFloat(52.3667, 10)
+  var locationLng = parseFloat(4.8945, 10)
   map = new google.maps.Map(document.getElementById('map'), {
     center: {lat: locationLat, lng: locationLng},
     zoom: 8
   });
 </script>
+</div>
+</div>
+
+
+
 </body>
 </html>
 
