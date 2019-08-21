@@ -13,25 +13,28 @@
             </svg>
           </button>
         </div>
+        <div id="create"><%=link_to "Create Location", new_location_path, class: "but" %>
+        </div>
       </form>
 
     <!-- <button class="myButton">Get inspired!</button> -->
   </div>
 
-<input type="text" id="searchbar">
 <div class="container">
   <div class="row" id="row">
     <%@locations.each do |location|%>
-      <div class="col-12">
-        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= cl_image_path location.photo, height: 300, width: 1000,crop: :fill %>)">
-          <div class="card-description">
+      <div class=col-12>
+        <div class="cards">
+          <div class="cards-description">
             <h2><%= link_to location.title, location_path(location)%></h2>
+            <p><%=location.address%></p>
+            <p><%=location.description%></p>
+            <h6><%=location.price%>,00€ / night</h6>
           </div>
         </div>
-        <div class="">
-      </div>
       </div>
     <% end %>
   </div>
 </div>
-<%=link_to "Create Location", new_location_path, class: "btn btn-warning" %>
+
+
