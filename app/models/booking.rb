@@ -3,6 +3,7 @@ class Booking < ApplicationRecord
   belongs_to :location
   has_many :users
   has_many :locations
+  has_one :review
 
   validates :type_of_party, presence: true
   validates :start_time, presence: true
