@@ -13,5 +13,6 @@ class PagesController < ApplicationController
         @received_bookings << booking if location == booking.location
       end
     end
+    @review = Review.new
   end
 end
