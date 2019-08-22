@@ -72,27 +72,32 @@
    <div>
   </div>
 
-
-<!-- insert real latitute, longitude -->
-<!-- ximena's map code  -->
-
+<!--  locations.location_lat  locations.location_lng -->
 <div id="mapcard">
-  <div id="map"><script src=<%= "https://maps.googleapis.com/maps/api/js?key=#{Rails.application.credentials.google_maps_api_key}&libraries=geometry" %>>
-  </script>
-  <script>
-  var locationLat = parseFloat(52.3667, 10)
-  var locationLng = parseFloat(4.8945, 10)
-  map = new google.maps.Map(document.getElementById('map'), {
-    center: {lat: locationLat, lng: locationLng},
-    zoom: 8
-  });
-</script>
-</div>
-</div>
+  <div id="map">
+    <script src=<%= "https://maps.googleapis.com/maps/api/js?key=#{Rails.application.credentials.google_maps_api_key}&libraries=geometry" %>>
+    </script>
+    <script>
+      var locationLat = parseFloat(52.3667, 10)
+      var locationLng = parseFloat(4.8945, 10)
+      var positionmarker = {lat: locationLat, lng: locationLng};
 
+      map = new google.maps.Map(document.getElementById('map'), {
+      center: {lat: locationLat, lng: locationLng},
+      zoom: 11});
+      var marker = new google.maps.Marker({
+        position: positionmarker,
+        title:"Hello World!"
+      });
+      marker.setMap(map)
 
+    </script>
+  </div>
+</div>
 
 </body>
-
 </html>
+
+
+
 
