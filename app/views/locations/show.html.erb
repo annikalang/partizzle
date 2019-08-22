@@ -1,83 +1,156 @@
-<html>
-   <head>
-      <link rel="stylesheet" href="../../../assets/stylesheets/pages/_home.scss">
-      <link rel="stylesheet" href="../../../assets/stylesheets/pages/_repo.scss">
-      <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
-      <meta charset="UTF-8">
-      <title>Sweet Location</title>
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-   </head>
-   <body class="show_body">
-      <div class="nav-container">
-         <a id="header_link home" class="navbar-brand" href="/locations">
-         <%= cl_image_tag @location.photo, height: 400, width: 1500, crop: :fill %>
-         </a>
-         <div>
-            <a class="search" href="/search">
-            </a>
-            <a id="header_link_Login" class="login/signup" href="/login">Login
-            </a>
-            <a class="sign-up" href="/signup">Sign Up
-            </a>
-         </div>
-      </div>
-      <%#= image_tag('livingroom.jpeg', alt: "User's location", class: 'listingpicture') %>
-      <div class="total_components">
-      <div class="container2">
-         <h1><%=@location.title.capitalize%></h1>
-         <div class = "content">
-         <p><strong>Description: </strong><%=@location.description%></p>
-         <ul>
-            <li><strong>Address: </strong><%=@location.address%></li>
-            <li><strong>Size: </strong><%=@location.size%>m2</li>
-            <li><strong>Price: € </strong><%=@location.price%></li>
-         </ul>
-         <h3>Tags: </h3>
-         <ol>
-            <%@location.tags.each do |tags|%>
-            <li><%="#" + tags%>
+    <!-- IMAGE BANNER  -->
+    <div class="location-image-banner" style="background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)), url('<%= cl_image_path @location.photo, crop: :fill %>')">
+    </div>
+
+    <!-- LOCATION DESCRIPTION, MAP & BOOKING FORM NEXT TO EACH OTHER -->
+
+    <div class="row container-description-map-booking">
+
+      <!-- LOCATION INFO -->
+      <div class="col-4">
+        <div class="location-info">
+          <div class="container2">
+           <h1><%=@location.title.capitalize%></h1>
+           <div class = "content">
+             <p><strong>Description: </strong><%=@location.description%></p>
+             <ul>
+              <li><strong>Address: </strong><%=@location.address%></li>
+              <li><strong>Size: </strong><%=@location.size%>m2</li>
+              <li><strong>Price: € </strong><%=@location.price%></li>
+            </ul>
+            <h3>Tags: </h3>
+            <ol>
+              <%@location.tags.each do |tags|%>
+              <li><%="#" + tags%>
                <%end%>
-         </ol>
+             </ol>
+             <%= image_tag('avatar.png', witdth: 50, height: 50, alt: "User's avatar") %>
+             <p><%=@user.first_name%></p>
+           </div>
+         </div>
        </div>
-       <div class="buttons">
-         <%=link_to "Edit Location", edit_location_path(@location), class: "btn1"%>
-         <%=link_to "Locations Menu", root_path, class: "btn2"%>
-         <%= link_to "Delete Location", location_path(@location),class: "btn3", :confirm => "Are you sure?", :method => :delete %>
+     </div>
+
+     <!-- MAP -->
+     <div class="col-4">
+      <div class="map">
+        <div id="mapcard">
+          <div id="map">
+            <script src=<%= "https://maps.googleapis.com/maps/api/js?key=#{Rails.application.credentials.google_maps_api_key}&libraries=geometry" %>>
+            </script>
+            <script>
+              var locationLat = parseFloat(<%= @location.latitude %>, 10)
+              var locationLng = parseFloat(<%= @location.longitude %>, 10)
+              var positionmarker = {lat: locationLat, lng: locationLng};
+
+              map = new google.maps.Map(document.getElementById('map'), {
+                center: {lat: locationLat, lng: locationLng},
+                zoom: 13});
+              var marker = new google.maps.Marker({
+                position: positionmarker,
+                title:"Hello World!"
+              });
+              marker.setMap(map)
+
+            </script>
+          </div>
         </div>
       </div>
-      <div class="container3">
-         <%= image_tag('avatar.png', witdth: 50, height: 50, alt: "User's avatar") %>
-         <p><%=@user.first_name%></p>
+    </div>
+
+    <!-- BOOKING FORM -->
+    <div class="col-4">
+      <div class="booking-form">
+       <div class="container3">
          <!-- button for text owner -->
          <div class="container4">
-            <%= form_for [@location, @booking] do |f| %>
-            <div class="form-group">
-               <%= f.label :type_of_party %>
-               <%= f.text_field :type_of_party, class: 'form-control' %>
-            </div>
-            <div class="form-group">
-               <%= f.label :start_time %>
-               <%= f.datetime_field :start_time, class: 'form-control' %>
-            </div>
-            <div class="form-group">
-               <%= f.label :end_time %>
-               <%= f.datetime_field :end_time, class: 'form-control' %>
-            </div>
-            <%= f.submit class: 'btn btn-warning' %>
-            <% end %>
+          <%= form_for [@location, @booking] do |f| %>
+          <div class="form-group">
+           <%= f.label :type_of_party %>
+           <%= f.text_field :type_of_party, class: 'form-control' %>
          </div>
-      </div>
-   <div>
+         <div class="form-group">
+           <%= f.label :start_time %>
+           <%= f.datetime_field :start_time, class: 'form-control' %>
+         </div>
+         <div class="form-group">
+           <%= f.label :end_time %>
+           <%= f.datetime_field :end_time, class: 'form-control' %>
+         </div>
+         <%= f.submit class: 'btn btn-warning' %>
+         <% end %>
+       </div>
+     </div>
+   </div>
+ </div>
+
+ <!-- REVIEWS -->
+ <div class="review-container">
+  <h2>What others had to say about <%= @location.title %></h2>
+   <div class="review-cards">
     <% @location.reviews.each do |review| %>
-      <p><%= review.booking.user.first_name %> <%= review.booking.user.last_name %></p>
-      <% review.rating.to_i.times do  %>
-        <span class="glyphicon glyphicon-star"></span>
-      <% end %>
-      <p><%= review.content %></p>
+    <p><%= review.booking.user.first_name %> <%= review.booking.user.last_name %></p>
+    <% review.rating.to_i.times do  %>
+    <span id = "pineapple-rating">🍍</span>
+    <% end %>
+    <p><%= review.content %></p>
     <% end %>
   </div>
-    </div>
+</div>
+
+</div>
+
+
+
+
+
+
+<!-- <div class="total_components">
+  <div class="container2">
+   <h1><%=@location.title.capitalize%></h1>
+   <div class = "content">
+     <p><strong>Description: </strong><%=@location.description%></p>
+     <ul>
+      <li><strong>Address: </strong><%=@location.address%></li>
+      <li><strong>Size: </strong><%=@location.size%>m2</li>
+      <li><strong>Price: € </strong><%=@location.price%></li>
+    </ul>
+    <h3>Tags: </h3>
+    <ol>
+      <%@location.tags.each do |tags|%>
+      <li><%="#" + tags%>
+       <%end%>
+     </ol>
+   </div>
+   <div class="buttons">
+     <%=link_to "Edit Location", edit_location_path(@location), class: "btn1"%>
+     <%=link_to "Locations Menu", root_path, class: "btn2"%>
+     <%= link_to "Delete Location", location_path(@location),class: "btn3", :confirm => "Are you sure?", :method => :delete %>
+   </div>
+ </div>
+ <div class="container3">
+   <%= image_tag('avatar.png', witdth: 50, height: 50, alt: "User's avatar") %>
+   <p><%=@user.first_name%></p>
+   <!-- button for text owner -->
+<!--    <div class="container4">
+    <%= form_for [@location, @booking] do |f| %>
+    <div class="form-group">
+     <%= f.label :type_of_party %>
+     <%= f.text_field :type_of_party, class: 'form-control' %>
+   </div>
+   <div class="form-group">
+     <%= f.label :start_time %>
+     <%= f.datetime_field :start_time, class: 'form-control' %>
+   </div>
+   <div class="form-group">
+     <%= f.label :end_time %>
+     <%= f.datetime_field :end_time, class: 'form-control' %>
+   </div>
+   <%= f.submit class: 'btn btn-warning' %>
+   <% end %>
+ </div>
+</div>
+</div> -->
 
 <!--  locations.location_lat  locations.location_lng -->
 <div id="mapcard">
@@ -90,8 +163,8 @@
       var positionmarker = {lat: locationLat, lng: locationLng};
 
       map = new google.maps.Map(document.getElementById('map'), {
-      center: {lat: locationLat, lng: locationLng},
-      zoom: 13});
+        center: {lat: locationLat, lng: locationLng},
+        zoom: 13});
       var marker = new google.maps.Marker({
         position: positionmarker,
         title:"Hello World!"
@@ -102,8 +175,8 @@
   </div>
 </div>
 
-</body>
-</html>
+<!-- </body> -->
+<!-- </html> -->
 
 
 
