@@ -24,19 +24,6 @@ mails.each do |mail|
   user.save!
 end
 
-20.times do
-  location = Location.new(
-    user: User.all.sample,
-    address: "Overhoeksplein 2, 1031 KS Amsterdam",
-    title: Faker::House.room,
-    size: rand(100..300),
-    remote_photo_url: "https://loremflickr.com/1024/768/party",
-    description: Faker::Lorem.paragraph,
-    price: rand(100..500),
-    tags: Faker::Hipster.words
-  )
-  location.save!
-end
 
 5.times do
   booking = Booking.new(
