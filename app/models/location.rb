@@ -3,6 +3,7 @@ require 'net/http'
 class Location < ApplicationRecord
   has_many :bookings, dependent: :destroy
   belongs_to :user
+  has_many :reviews, through: :bookings
 
   # before_save :coordinates
 

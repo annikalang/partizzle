@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <h1>Create a review for <%= @location.title %></h1>
+
+      <%= simple_form_for [@location, @booking, @review] do |l| %>
+        <%= l.input :content %>
+        <%= l.input :rating %>
+        <%= l.button :submit, class: 'btn btn-warning' %>
+      <% end %>
+    </div>
+  </div>
+</div>
