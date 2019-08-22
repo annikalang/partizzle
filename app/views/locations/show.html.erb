@@ -25,7 +25,7 @@
       <%#= image_tag('livingroom.jpeg', alt: "User's location", class: 'listingpicture') %>
       <div class="total_components">
       <div class="container2">
-         <h1><%=@location.title%></h1>
+         <h1><%=@location.title.capitalize%></h1>
          <div class = "content">
          <p><strong>Description: </strong><%=@location.description%></p>
          <ul>
