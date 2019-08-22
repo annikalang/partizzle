@@ -78,13 +78,13 @@
     <script src=<%= "https://maps.googleapis.com/maps/api/js?key=#{Rails.application.credentials.google_maps_api_key}&libraries=geometry" %>>
     </script>
     <script>
-      var locationLat = parseFloat(52.3667, 10)
-      var locationLng = parseFloat(4.8945, 10)
+      var locationLat = parseFloat(<%= @location.latitude %>, 10)
+      var locationLng = parseFloat(<%= @location.longitude %>, 10)
       var positionmarker = {lat: locationLat, lng: locationLng};
 
       map = new google.maps.Map(document.getElementById('map'), {
       center: {lat: locationLat, lng: locationLng},
-      zoom: 11});
+      zoom: 13});
       var marker = new google.maps.Marker({
         position: positionmarker,
         title:"Hello World!"
