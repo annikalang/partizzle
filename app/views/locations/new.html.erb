@@ -9,10 +9,10 @@
 
 <body>
 
-<div class="container">
+<div class="container_form">
   <div class="row justify-content-center">
     <div class="col-md-8">
-      <h1>List a new location:</h1>
+      <h1>List a new location</h1>
 
       <%= simple_form_for @location do |l| %>
         <%= l.input :title %>
@@ -23,12 +23,14 @@
         <%= l.input :tags%>
         <%= l.input :photo %>
         <%= l.input :photo_cache, as: :hidden %>
+        <div class="form_button">
         <%= l.button :submit, class: 'btn btn-warning' %>
+      </div>
       <% end %>
     </div>
   </div>
 </div>
-<div class="footer">
+<div class="footer_form">
   <div class="footer-links">
     <i class="fab fa-github"></i>
     <i class="fab fa-instagram"></i>

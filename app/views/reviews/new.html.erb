@@ -1,3 +1,5 @@
+<body>
+<div class="container_form">
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-md-8">
@@ -6,8 +8,12 @@
       <%= simple_form_for [@location, @booking, @review] do |l| %>
         <%= l.input :content %>
         <%= l.input :rating %>
+        <div class="form_button">
         <%= l.button :submit, class: 'btn btn-warning' %>
+      </div>
       <% end %>
     </div>
   </div>
 </div>
+</div>
+</body>
