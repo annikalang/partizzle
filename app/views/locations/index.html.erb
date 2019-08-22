@@ -18,8 +18,15 @@
       </form>
 
     <!-- <button class="myButton">Get inspired!</button> -->
-  </div>
-
+<div class="filter">
+  <h3>Price Filter</h3>
+<select id="dropdown">
+  <option value="98"></option>
+  <%@locations.each do |location|%>
+  <option value="98"><%=location.price%>,00€ / night</option>
+<%end%>
+</select>
+</div>
 <div class="container">
   <div class="row" id="row">
     <%@locations.each do |location|%>
@@ -31,7 +38,7 @@
             <h2><%= link_to location.title.capitalize, location_path(location)%></h2>
             <p><%=location.address%></p>
             <p><%=location.description%></p>
-            <h6><strong><%=location.price%>,00€ / night</strong></h6>
+            <h6 class="price"><strong class="price_tag"><%=location.price%>,00€ / night</strong></h6>
           </div>
           </div>
           </div>
