@@ -18,6 +18,7 @@ html {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: sticky;
 }
 
 .nav-container a {
@@ -256,4 +257,30 @@ ul{
   padding-right: 20px;
 }
 
+.dashboard-buttons{
+  display: inline-flex;
+  float: right;
+  background-color: black;
+  height: 40px;
+  width: 100px;
+  color: white;
+  padding-right: 40px;
+  text-align: center;
+}
+.btn-filled1{
+  padding-right: 30px;
+}
+.footer{
+  margin-top: 30px;
+  height: 50px;
+  width: 100%;
+}
+.footer-links {
+ font-size: 25px;
+ color: #d4d7dd;
+ text-align: center;
+}
 
+.footer-links i:hover{
+ color: #FADF32
+}
