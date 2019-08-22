@@ -85,6 +85,7 @@
                     <p><%= booking.end_time %></p>
                     <p><%=booking.location.price%>,00€ / night</p>
                     <h6><%=booking.status%></h6>
+                    <%= link_to "Add Review", new_location_booking_review_path(booking.location_id, booking.id, @review) %>
                   </div>
                 </div>
               </div>

@@ -23,3 +23,60 @@ const searchbar = document.querySelector("#searchbar")
 searchbar.addEventListener("keyup",(event)=>{
   Search()
 })
+
+const rawCards = document.querySelectorAll(".cards");
+const imStupid = [];
+
+const generateCards = () => {
+  rawCards.forEach((card) => {
+    random = new Object;
+    random.html = card
+    random.price_tag = card.querySelector(".price_tag").innerText
+    imStupid.push(random);
+  })
+  console.log(imStupid)
+}
+
+const sel = document.getElementById("dropdown");
+
+const activateSelect = () => {
+  sel.onchange = function(){
+    const text = sel.options[sel.selectedIndex].text;
+    imStupid.forEach((obj) => {
+      console.log(obj)
+      if (text == "") {
+        obj.html.style.display = "";
+      } else if (text == obj.price_tag) {
+        obj.html.style.display = "";
+      } else {
+        obj.html.style.display = "none";
+      }
+    })
+  };
+}
+
+const activateTheWholeFuckingThing = () => {
+  generateCards();
+  activateSelect();
+}
+
+activateTheWholeFuckingThing();
+
+
+
+window.onscroll = function() {myFunction()};
+
+// Get the navbar
+let navbar = document.querySelector(".nav-container")
+
+// Get the offset position of the navbar
+var sticky = navbar.offsetTop;
+
+// Add the sticky class to the navbar when you reach its scroll position. Remove "sticky" when you leave the scroll position
+function myFunction() {
+  if (window.pageYOffset >= sticky) {
+    navbar.classList.add("sticky")
+  } else {
+    navbar.classList.remove("sticky");
+  }
+}

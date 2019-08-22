@@ -3,6 +3,7 @@ require 'net/http'
 class Location < ApplicationRecord
   has_many :bookings, dependent: :destroy
   belongs_to :user
+  has_many :reviews, through: :bookings
 
   # before_save :coordinates
 
@@ -11,6 +12,9 @@ class Location < ApplicationRecord
   validates :size, presence: true
   validates :description, presence: true
   validates :price, presence: true
+
+  geocoded_by :address
+  after_validation :geocode, if: :will_save_change_to_address?
 
   private
 
@@ -37,6 +41,5 @@ class Location < ApplicationRecord
 
   mount_uploader :photo, PhotoUploader
 end
-
 
 

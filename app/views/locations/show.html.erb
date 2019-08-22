@@ -30,8 +30,8 @@
          <p><strong>Description: </strong><%=@location.description%></p>
          <ul>
             <li><strong>Address: </strong><%=@location.address%></li>
-            <li><strong>Size: </strong><%=@location.size%>m2</li>
-            <li><strong>Price: € </strong><%=@location.price%></li>
+            <li><strong>Size: </strong><%=@location.size%> sq m</li>
+            <li><strong>Price:</strong> € <%=@location.price%></li>
          </ul>
          <h3>Tags: </h3>
          <ol>
@@ -68,9 +68,16 @@
             <% end %>
          </div>
       </div>
-    </div>
    <div>
+    <% @location.reviews.each do |review| %>
+      <p><%= review.booking.user.first_name %> <%= review.booking.user.last_name %></p>
+      <% review.rating.to_i.times do  %>
+        <span class="glyphicon glyphicon-star"></span>
+      <% end %>
+      <p><%= review.content %></p>
+    <% end %>
   </div>
+    </div>
 
 <!--  locations.location_lat  locations.location_lng -->
 <div id="mapcard">
@@ -78,13 +85,13 @@
     <script src=<%= "https://maps.googleapis.com/maps/api/js?key=#{Rails.application.credentials.google_maps_api_key}&libraries=geometry" %>>
     </script>
     <script>
-      var locationLat = parseFloat(52.3667, 10)
-      var locationLng = parseFloat(4.8945, 10)
+      var locationLat = parseFloat(<%= @location.latitude %>, 10)
+      var locationLng = parseFloat(<%= @location.longitude %>, 10)
       var positionmarker = {lat: locationLat, lng: locationLng};
 
       map = new google.maps.Map(document.getElementById('map'), {
       center: {lat: locationLat, lng: locationLng},
-      zoom: 11});
+      zoom: 13});
       var marker = new google.maps.Marker({
         position: positionmarker,
         title:"Hello World!"
@@ -94,7 +101,15 @@
     </script>
   </div>
 </div>
-
+<div class="footer">
+  <div class="footer-links">
+    <i class="fab fa-github"></i>
+    <i class="fab fa-instagram"></i>
+    <i class="fab fa-facebook"></i>
+    <i class="fab fa-twitter"></i>
+    <i class="fab fa-linkedin"></i>
+  </div>
+</div>
 </body>
 </html>
 

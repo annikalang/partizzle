@@ -19,7 +19,7 @@ html {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  min-width: 335px;
+  position: sticky;
 }
 
 .nav-container a {
@@ -54,7 +54,7 @@ html {
 
 .container1 {
   padding: 60px 40px 80px 40px;
-  color: #171717;
+  color: white;
   background-color: silver;
   background-color: hsla(0, 0%, 100%, 0.4);
   height: 400px;
@@ -334,4 +334,45 @@ ul{
   img {
   width: 100%;
   }
+  
+.filter{
+  margin-top: 100px;
+  display: inline-flex;
+  justify-content: space-between;
+}
+
+.filter h3{
+  color: black;
+  font-family: "Open Sans", "Helvetica", "sans-serif";
+  font-size: 20px;
+  font-weight: bold;
+  opacity: 0.6;
+  margin-top: 10px;
+  padding-right: 20px;
+}
+
+.dashboard-buttons{
+  display: inline-flex;
+  float: right;
+  background-color: black;
+  height: 40px;
+  width: 100px;
+  color: white;
+  padding-right: 40px;
+  text-align: center;
+}
+  
+.footer{
+  margin-top: 30px;
+  height: 50px;
+  width: 100%;
+}
+.footer-links {
+ font-size: 25px;
+ color: #d4d7dd;
+ text-align: center;
+}
+
+.footer-links i:hover{
+ color: #FADF32
 }
