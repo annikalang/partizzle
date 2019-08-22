@@ -16,18 +16,17 @@
         <div id="create"><%=link_to "Create Location", new_location_path, class: "but" %>
         </div>
       </form>
-
-    <!-- <button class="myButton">Get inspired!</button> -->
+      <!-- <button class="myButton">Get inspired!</button> -->
   </div>
 
 <div class="container">
   <div class="row" id="row">
     <%@locations.each do |location|%>
-      <div class="col-12 col-6 col-4">
-        <div class="cards"style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),*/ url(<%= cl_image_path location.photo, height: 300, width: 1000,crop: :fill %>)">
+      <div class="col-12 col-6">
+        <div style="background-image: url(<%= cl_image_path location.photo, width: 350, crop: :fill %>)" class="cards">
           <div class="card-description">
             <div class="background">
-              <div class="col-12 col-6 col-3">
+              <div class="col-12 col-6">
             <h2><%= link_to location.title.capitalize, location_path(location)%></h2>
             <p><%=location.address%></p>
             <p><%=location.description%></p>

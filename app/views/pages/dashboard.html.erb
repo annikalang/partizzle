@@ -1,30 +1,93 @@
-<h1>this is your dashboard</h1>
-
-<h2>Received Bookings</h2>
-
-<% @received_bookings.each do |b| %>
-<p><%= b.user.first_name %> <%= b.user.last_name %> wants to throw a <%= b.type_of_party %> party</p>
-<p><%= b.location.title %></p>
-<p><%= b.location.address %></p>
-<p><%= b.location.size %> sqm</p>
-<p><%= b.location.price %>,00 €</p>
-<p><%= b.start_time %></p>
-<p><%= b.end_time %></p>
-<p><%= b.status %></p>
-<% end %>
-
-<h2>Bookings you made</h2>
-<% @my_bookings.each do |b| %>
-<p>You want to throw a <%= b.type_of_party %> party</p>
-<p><%= b.location.title %></p>
-<p><%= b.location.address %></p>
-<p><%= b.location.size %> sqm</p>
-<p><%= b.location.price %>,00 €</p>
-<p><%= b.start_time %></p>
-<p><%= b.end_time %></p>
-<p><%= b.status %></p>
-
-<%= link_to "Add Review", new_location_booking_review_path(b.location_id, b.id, @review) %>
-<% end %>
+<div class="banner2">
+  <div class="contain">
+    <%= image_tag('https://images.unsplash.com/photo-1529068755536-a5ade0dcb4e8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=801&q=80/200', width: 300, height: 300, alt: "User's avatar") %>
+    <div class="details">
+      <h1><%=current_user.first_name%> <%=current_user.last_name%></h1>
+      <p><%=current_user.email%></p>
+      <p><%=current_user.phone_number%></p>
+      <div class="buttonsprofile">
+        <div id="buttonedit"><%=link_to "Edit"%>
+        </div>
+        <div id="buttondelete"><%=link_to "Delete"%>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  <div>
+    <div class="contain2">
+      <h3>My Locations:</h3>
+        <div class="contain2.1">
+          <div class="column">
+            <%@my_locations.each do |location|%>
+              <div class=col-6>
+                <div class="cards-mine">
+                  <div class="cards--mine-description">
+                    <%= cl_image_tag location.photo, height: 400, width: 1500, crop: :fill %>
+                    <h2><%= link_to location.title, location_path(location)%></h2>
+                    <p><%=location.address%></p>
+                    <p><%=location.description%></p>
+                    <h6><%=location.price%>,00€ / night</h6>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="contain2">
+      <h3>Received bookings:</h3>
+        <div class="contain2.1">
+          <div class="column">
+            <%@received_bookings.each do |booking|%>
+              <div class=col-6>
+                <div class="cards-mine">
+                  <div class="cards--mine-description">
+                    <p><%= booking.user.first_name %> <%= booking.user.last_name %></p>
+                    <p><%= booking.type_of_party %></p>
+                    <p><%=booking.location.title%></p>
+                    <p><%=booking.location.address%></p>
+                    <p><%=booking.location.description%></p>
+                    <p><%= booking.location.size %> sqm</p>
+                    <p><%= booking.start_time %></p>
+                    <p><%= booking.end_time %></p>
+                    <p><%=booking.location.price%>,00€ / night</p>
+                    <h6><%=booking.status%></h6>
+                  </div>
+                </div>
+              </div>
+            <%end%>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="contain2">
+      <h3>My Requests:</h3>
+        <div class="contain2.1">
+          <div class="column">
+            <%@my_bookings.each do |booking|%>
+              <div class=col-6>
+                <div class="cards-mine">
+                  <div class="cards--mine-description">
+                    <h2><%=booking.location.title%></h2>
+                    <p><%= booking.location.address %></p>
+                    <p><%=booking.location.description%></p>
+                    <p><%= booking.location.size %> sqm</p>
+                    <p><%= booking.start_time %></p>
+                    <p><%= booking.end_time %></p>
+                    <p><%=booking.location.price%>,00€ / night</p>
+                    <h6><%=booking.status%></h6>
+                    <%= link_to "Add Review", new_location_booking_review_path(booking.location_id, booking.id, @review) %>
+                  </div>
+                </div>
+              </div>
+            <%end%>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 
