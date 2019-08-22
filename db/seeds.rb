@@ -24,6 +24,28 @@ mails.each do |mail|
   user.save!
 end
 
+addresses = ["Westermarkt 20, 1016 GV Amsterdam",
+  "Place Charles de Gaulle, 75008 Paris, France",
+  "Pariser Platz, 10117 Berlin, Germany",
+  "Piazza di Trevi, 00187 Roma RM, Italy",
+  "Overblaak 70, 3011 MH Rotterdam",
+  "Carnegieplein 2, 2517 KJ Den Haag",
+  "Cra. 6 ##15-88, Bogotá, Colombia"]
+
+addresses.each do |address|
+  url = "https://res.cloudinary.com/djbsezqc3/image/upload/v1566479294/photo-1549752460-eab9bf438c87_olmdpw.jpg"
+  location = Location.new(
+
+    title: Faker::House.room,
+    description: Faker::Name.last_name,
+    price: € Faker::Number.number(digits: 3),
+    size: Faker::Number.number(digits: 3) sq m,
+    address: address,
+    user: User.all.sample,
+  )
+  location.remote_photo_url = url
+  location.save!
+end
 
 5.times do
   booking = Booking.new(
