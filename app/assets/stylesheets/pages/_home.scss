@@ -24,7 +24,7 @@ html {
   float: left;
   color: #4B4B4B;
   text-align: center;
-  padding: 14px 16px;
+  padding: 0px 16px;
   text-decoration: none;
   font-size: 17px;
 }
@@ -69,9 +69,7 @@ html {
 }
 
 .cards-description {
-  padding-left: 220px;
-  padding-top: 20px;
-  color: #4B4B4B;
+  padding-left: 200px;
 }
 
 .cards-description a {
@@ -88,7 +86,7 @@ html {
   font-size: 13px;
 }
 
-.cards-description h6 {
+.cards h6 {
   text-align: right;
   color: #4B4B4B;
   padding-right: 20px;
@@ -225,4 +223,14 @@ html {
 
 ul{
   list-style-type: none;
+}
+
+.background{
+  background-color: #eae9e9;
+  height: 200px;
+  padding-left: 30px;
+  padding-top: 20px;
+  color: black;
+  text-align: left;
+  margin-left: 200px;
 }
