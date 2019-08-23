@@ -47,7 +47,7 @@
           <div class="card-description">
             <div class="background">
               <div class="col-12 col-6">
-            <h2><%=link_to location.title, location_path(location)%></h2>
+            <h4><%=link_to location.title, location_path(location)%></h4>
             <div class="review-cards-f">
             <%location.reviews.each do |review| %>
              <p>Rating: <% review.rating.to_i.times { %>🍍<% } %></p>
@@ -57,6 +57,7 @@
 
             <p><%=location.address%></p>
             <p><%=location.description%></p>
+            <br>
             <h6 class="price"><strong class="price_tag"><%=location.price%>,00€ / night</strong></h6>
           </div>
           </div>
