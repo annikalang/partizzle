@@ -15,6 +15,7 @@ class LocationsController < ApplicationController
     @booking = Booking.new
     @location = Location.find(params[:id])
     @user = @location.user
+    @review = @location.reviews
   end
 
   def create

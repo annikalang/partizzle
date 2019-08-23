@@ -27,6 +27,18 @@
 </select>
 </div>
 
+<div class="filter">
+  <h3>Rating Filter</h3>
+<select id="dropdown_reviews">
+  <option value="98"></option>
+  <option value="98"><span id = "pineapple-rating">🍍</span></option>
+  <option value="98"><span id = "pineapple-rating">🍍🍍</span></option>
+  <option value="98"><span id = "pineapple-rating">🍍🍍🍍</span></option>
+  <option value="98"><span id = "pineapple-rating">🍍🍍🍍🍍</span></option>
+  <option value="98"><span id = "pineapple-rating">🍍🍍🍍🍍🍍</span></option>
+</select>
+</div>
+
 <div class="container">
   <div class="row" id="row">
     <%@locations.each do |location|%>
@@ -35,7 +47,13 @@
           <div class="card-description">
             <div class="background">
               <div class="col-12 col-6">
-            <h2><%= link_to location.title.capitalize, location_path(location)%></h2>
+            <h2><%=link_to location.title.capitalize, location_path(location)%></h2>
+            <div class="review-cards-f">
+            <%location.reviews.each do |review| %>
+             <p>Rating: <% review.rating.to_i.times { %>🍍<% } %></p>
+             <span id = "pineapple-rating"></span>
+            <%end%>
+          </div>
             <p><%=location.address%></p>
             <p><%=location.description%></p>
             <h6 class="price"><strong class="price_tag"><%=location.price%>,00€ / night</strong></h6>
@@ -56,5 +74,6 @@
     <i class="fab fa-linkedin"></i>
   </div>
 </div>
+
 
 
