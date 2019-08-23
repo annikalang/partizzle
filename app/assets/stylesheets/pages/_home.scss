@@ -342,7 +342,7 @@ ul{
 }
 
 .filter{
-  margin-top: 100px;
+  margin-top: 20px;
   display: inline-flex;
   justify-content: space-between;
   margin-right: 10px;
@@ -357,6 +357,7 @@ ul{
   margin-top: 10px;
   padding-right: 20px;
 }
+
 
 .footer{
   margin-top: 30px;
@@ -433,4 +434,10 @@ padding-bottom: 20px;
   margin-bottom: 10px;
   padding: 5px 6px;
   border-radius: 15px;
+}
+
+.main_filter{
+ margin-top: 120px;
+ color: black;
+ opacity: 0.7;
 }

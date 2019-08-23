@@ -16,9 +16,10 @@
         <div id="create"><%=link_to "List a Location", new_location_path, class: "wrapper-gradient" %>
         </div>
       </form>
-
+<div class="filter_options">
+ <h2 class="main_filter">Filters</h2>
 <div class="filter">
-  <h3>Price Filter</h3>
+  <h3>Price</h3>
 <select id="dropdown">
   <option value="98"></option>
   <%@locations.each do |location|%>
@@ -28,7 +29,7 @@
 </div>
 
 <div class="filter">
-  <h3>Rating Filter</h3>
+  <h3>Rating</h3>
 <select id="dropdown_reviews">
   <option value="98"></option>
   <option value="98"><span id = "pineapple-rating">🍍</span></option>
@@ -37,6 +38,7 @@
   <option value="98"><span id = "pineapple-rating">🍍🍍🍍🍍</span></option>
   <option value="98"><span id = "pineapple-rating">🍍🍍🍍🍍🍍</span></option>
 </select>
+</div>
 </div>
 
 <div class="container">
@@ -49,10 +51,12 @@
               <div class="col-12 col-6">
             <h2><%=link_to location.title, location_path(location)%></h2>
             <div class="review-cards-f">
+            <% sum = 0 %>
             <%location.reviews.each do |review| %>
-             <p>Rating: <% review.rating.to_i.times { %>🍍<% } %></p>
-             <span id = "pineapple-rating"></span>
+              <% sum += review.rating %>
             <%end%>
+            <p>Rating: <% (sum/location.reviews.count).times { %>🍍<% } %></p>
+            <span id = "pineapple-rating"></span>
           </div>
 
             <p><%=location.address%></p>
