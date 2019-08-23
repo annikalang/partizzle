@@ -53,10 +53,9 @@
             <div class="review-cards-f">
             <% sum = 0 %>
             <%location.reviews.each do |review| %>
-              <% sum += review.rating %>
-            <%end%>
-            <p>Rating: <% (sum/location.reviews.count).times { %>🍍<% } %></p>
+            <p>Rating: <% review.rating.to_i.times { %>🍍<% } %></p>
             <span id = "pineapple-rating"></span>
+            <%end%>
           </div>
 
             <p><%=location.address%></p>
