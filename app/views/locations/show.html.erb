@@ -4,68 +4,78 @@
 
     <!-- LOCATION DESCRIPTION, MAP & BOOKING FORM NEXT TO EACH OTHER -->
 
-    <div class="row container-description-map-booking">
+    <div class="container-description-map-booking">
+      <div class="row">
 
-      <!-- LOCATION INFO -->
-      <div class="col-4">
-        <div class="location-info">
-          <div class="container2">
-           <h1><%=@location.title.capitalize%></h1>
-           <div class = "content">
-             <p><strong>Description: </strong><%=@location.description%></p>
-             <ul>
-              <li><strong>Address: </strong><%=@location.address%></li>
-              <li><strong>Size: </strong><%=@location.size%>m2</li>
-              <li><strong>Price: € </strong><%=@location.price%></li>
-            </ul>
-            <h3>Tags: </h3>
-            <ol>
-              <%@location.tags.each do |tags|%>
-              <li><%="#" + tags%>
-               <%end%>
-             </ol>
-             <%= image_tag('avatar.png', witdth: 50, height: 50, alt: "User's avatar") %>
-             <p><%=@user.first_name%></p>
-           </div>
-         </div>
-       </div>
-     </div>
 
-     <!-- MAP -->
-     <div class="col-4">
-      <div class="map">
-        <div id="mapcard">
-          <div id="map">
-            <script src=<%= "https://maps.googleapis.com/maps/api/js?key=#{Rails.application.credentials.google_maps_api_key}&libraries=geometry" %>>
-            </script>
-            <script>
-              var locationLat = parseFloat(<%= @location.latitude %>, 10)
-              var locationLng = parseFloat(<%= @location.longitude %>, 10)
-              var positionmarker = {lat: locationLat, lng: locationLng};
+        <!-- LOCATION INFO -->
+        <div class="col-md-4 col-sm-12">
+          <div class="container-description">
 
-              map = new google.maps.Map(document.getElementById('map'), {
-                center: {lat: locationLat, lng: locationLng},
-                zoom: 13});
-              var marker = new google.maps.Marker({
-                position: positionmarker,
-                title:"Hello World!"
-              });
-              marker.setMap(map)
+           <h1 class="header1"><%=@location.title.capitalize%></h1>
+           <div class="container-tags-owner">
 
-            </script>
+            <div class="row">
+
+              <div class="col-6 container-heading-tags">
+               <ul class="list-inline">
+                <%@location.tags.each do |tags|%>
+                <li class="list-inline-item"><%="#" + tags%>
+                 <%end%>
+               </ul>
+             </div>
+
+             <div class="col-6 owner-info">
+              <%= image_tag('avatar.png', witdth: 50, height: 50, alt: "User's avatar") %>
+              <p>owned by <%=@user.first_name%> <%=@user.last_name%></p>
+            </div>
           </div>
+        </div>
+
+        <p><strong>What to expect?<br></strong><%=@location.description%></p>
+        <p><strong>Where to find?<br></strong><%=@location.address%></p>
+        <p><strong>How big?<br></strong><%=@location.size%>m2</p>
+        <p><strong>How much?<br></strong><%=@location.price%>,00 €</p>
+
+
+
+      </div>
+
+
+    </div>
+
+    <!-- MAP -->
+    <div class="col-md-4 padding-none col-sm-12">
+      <div class="map">
+        <div id="map">
+          <script src=<%= "https://maps.googleapis.com/maps/api/js?key=#{Rails.application.credentials.google_maps_api_key}&libraries=geometry" %>>
+          </script>
+          <script>
+            var locationLat = parseFloat(<%= @location.latitude %>, 10)
+            var locationLng = parseFloat(<%= @location.longitude %>, 10)
+            var positionmarker = {lat: locationLat, lng: locationLng};
+
+            map = new google.maps.Map(document.getElementById('map'), {
+              center: {lat: locationLat, lng: locationLng},
+              zoom: 13});
+            var marker = new google.maps.Marker({
+              position: positionmarker,
+              title:"Hello World!"
+            });
+            marker.setMap(map)
+
+          </script>
         </div>
       </div>
     </div>
 
     <!-- BOOKING FORM -->
-    <div class="col-4">
-      <div class="booking-form">
-       <div class="container3">
+    <div class="col-md-4 col-sm-12 padding-center">
+      <div class="booking-form-container">
+       <div class="booking-form">
          <!-- button for text owner -->
-         <div class="container4">
-          <%= form_for [@location, @booking] do |f| %>
-          <div class="form-group">
+         <%= form_for [@location, @booking] do |f| %>
+         <div class="form-group">
            <%= f.label :type_of_party %>
            <%= f.text_field :type_of_party, class: 'form-control' %>
          </div>
@@ -77,25 +87,40 @@
            <%= f.label :end_time %>
            <%= f.datetime_field :end_time, class: 'form-control' %>
          </div>
-         <%= f.submit class: 'btn btn-warning' %>
+         <%= f.submit class: 'wrapper-gradient', value: 'Book now!' %>
          <% end %>
        </div>
      </div>
    </div>
- </div>
 
- <!-- REVIEWS -->
- <div class="review-container">
+ </div>
+</div>
+
+<!-- REVIEWS -->
+<div class="col-6 review-container">
   <h2>What others had to say about <%= @location.title %></h2>
-   <div class="review-cards">
+
+  <div class="review-cards-container">
     <% @location.reviews.each do |review| %>
-    <p><%= review.booking.user.first_name %> <%= review.booking.user.last_name %></p>
-    <% review.rating.to_i.times do  %>
-    <span id = "pineapple-rating">🍍</span>
-    <% end %>
-    <p><%= review.content %></p>
-    <% end %>
-  </div>
+
+    <div class="review-card">
+      <div class="row">
+        <div class="review-user-info">
+          <%= image_tag('avatar.png', witdth: 80, height: 80, alt: "User's avatar") %>
+         <p><%= review.booking.user.first_name %> <%= review.booking.user.last_name %></p>
+       </div>
+       <p id = "pineapple-rating">
+       <% review.rating.to_i.times do  %>
+       🍍
+       </p>
+       <% end %>
+       <br>
+       <p><%= review.content %></p>
+     </div>
+   </div>
+   <% end %>
+
+ </div>
 </div>
 
 </div>
