@@ -16,6 +16,11 @@ class LocationsController < ApplicationController
     @location = Location.find(params[:id])
     @user = @location.user
     @review = @location.reviews
+    @average = 0
+    @location.reviews do |r|
+      @average += r.rating
+    end
+    @average = @average / @location.reviews.count
   end
 
   def create
