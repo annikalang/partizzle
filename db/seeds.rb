@@ -37,14 +37,16 @@ descriptions = ["Very spacious and clean, in a great location and amazing decora
   "Lovely neighborhood. Beautifully furnished room.",
   "Luxurious room in town centre."]
 
-titles = ["Mind-boggling German garage with plenty of room",
-  "Super cool boathouse in Rotterdam with two small rooms",
-  "Small little attic room in Amsterdam",
-  "Tremendous garden in Paris",
+titles = ["German garage with a crazy amount of room",
+  "Crazy cool boathouse in Rotterdam",
+  "Crazy small attic room in Amsterdam",
+  "Garden in Paris for crazy parties",
   "Huge basement room in the middle of Rome",
   "The ultimate dream bicycle closet",
   "Very cosy common room in Colombia",
   "Luxurious living room in Amsterdam"]
+
+  prices = [100, 300, 200, 150, 200, 150, 100, 300]
 
 puts 'creating fake addresses, fake descriptions and fake titles for the locations'
 addresses.each_with_index do |address, i|
@@ -52,7 +54,7 @@ addresses.each_with_index do |address, i|
   location = Location.new(
     title: titles[i],
     description: descriptions[i],
-    price: (30..2000).to_a.sample,
+    price: prices[i],
     size: (30..500).to_a.sample,
     address: address,
     user: User.all.sample
