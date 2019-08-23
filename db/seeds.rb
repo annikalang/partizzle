@@ -19,22 +19,42 @@ mails.each do |mail|
   user.save!
 end
 
-addresses = ["Westermarkt 20, 1016 GV Amsterdam",
-  "Place Charles de Gaulle, 75008 Paris, France",
-  "Pariser Platz, 10117 Berlin, Germany",
-  "Piazza di Trevi, 00187 Roma RM, Italy",
+addresses = ["Pariser Platz, 10117 Berlin, Germany",
   "Overblaak 70, 3011 MH Rotterdam",
+  "Westermarkt 20, 1016 GV Amsterdam",
+  "Place Charles de Gaulle, 75008 Paris, France",
+  "Piazza di Trevi, 00187 Roma RM, Italy",
   "Carnegieplein 2, 2517 KJ Den Haag",
   "Cra. 6 ##15-88, Bogotá, Colombia",
   "Zaventemweg 3, 1043 EH Amsterdam"]
 
-puts 'creating fake addresses for the locations'
-addresses.each do |address|
-  url = "https://res.cloudinary.com/djbsezqc3/image/upload/v1566479294/photo-1549752460-eab9bf438c87_olmdpw.jpg"
+descriptions = ["Very spacious and clean, in a great location and amazing decoration.",
+  "The perfect place to relax, recharge, and enjoy!",
+  "Perfect location, friendly owner.",
+  "Unforgettable location with enchanting surroundings.",
+  "Great for entertaining: spacious and awesome newly decorated room.",
+  "We loved our stay. Best party ever!",
+  "Lovely neighborhood. Beautifully furnished room.",
+  "Luxurious room in town centre."]
+
+titles = ["German garage with a crazy amount of room",
+  "Crazy cool boathouse in Rotterdam",
+  "Crazy small attic room in Amsterdam",
+  "Garden in Paris for crazy parties",
+  "Huge basement room in the middle of Rome",
+  "The ultimate dream bicycle closet",
+  "Very cosy common room in Colombia",
+  "Luxurious living room in Amsterdam"]
+
+  prices = [100, 300, 200, 150, 200, 150, 100, 300]
+
+puts 'creating fake addresses, fake descriptions and fake titles for the locations'
+addresses.each_with_index do |address, i|
+  url = "https://loremflickr.com/1024/768/cocktail"
   location = Location.new(
-    title: Faker::House.room,
-    description: Faker::Name.last_name,
-    price: (30..2000).to_a.sample,
+    title: titles[i],
+    description: descriptions[i],
+    price: prices[i],
     size: (30..500).to_a.sample,
     address: address,
     user: User.all.sample
@@ -42,26 +62,6 @@ addresses.each do |address|
   location.remote_photo_url = url
   location.save!
 end
-
-descriptions = ["Very spacious and clean, in a great location and amazing decoration",
-"Unforgettable location with enchanting surroundings",
-"Lovely neighborhood. Beautifully furnished room",
-"Great for entertaining: spacious and awesome newly decorated room",
-"Luxurious room in town centre"]
-
-puts 'creating descriptions for the locations'
-descriptions.each do |description|
-  location = Location.new(
-    title: Faker::House.room,
-    description: description,
-    price: (30..2000).to_a.sample,
-    size: (30..500).to_a.sample,
-    address: addresses.sample,
-    user: User.all.sample
-    )
-  location.save!
-end
-
 
 puts 'creating multiple types of parties for bookings'
 5.times do

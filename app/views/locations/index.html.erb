@@ -13,7 +13,7 @@
             </svg>
           </button>
         </div>
-        <div id="create"><%=link_to "Create Location", new_location_path, class: "but" %>
+        <div id="create"><%=link_to "List a Location", new_location_path, class: "wrapper-gradient" %>
         </div>
       </form>
 
@@ -47,13 +47,14 @@
           <div class="card-description">
             <div class="background">
               <div class="col-12 col-6">
-            <h2><%=link_to location.title.capitalize, location_path(location)%></h2>
+            <h2><%=link_to location.title, location_path(location)%></h2>
             <div class="review-cards-f">
             <%location.reviews.each do |review| %>
              <p>Rating: <% review.rating.to_i.times { %>🍍<% } %></p>
              <span id = "pineapple-rating"></span>
             <%end%>
           </div>
+
             <p><%=location.address%></p>
             <p><%=location.description%></p>
             <h6 class="price"><strong class="price_tag"><%=location.price%>,00€ / night</strong></h6>

@@ -319,9 +319,12 @@ ul{
   color: #4B4B4B;
   padding-top: 20px;
   padding-left: 20px;
+  padding-right: 20px;
+  height: 250px;
 
   h6 {
     font-weight: bold;
+    text-align: right;
   }
 }
 
@@ -404,4 +407,28 @@ padding-bottom: 20px;
   bottom: 3px;
   width: 150px;
   right: 20px;
+}
+
+.declineaccept {
+  display: flex;
+  padding-left: 20px;
+  vertical-align: bottom;
+  padding-top: 140px;
+}
+
+.buttonaccept a {
+  color: #F8F9FA;
+  font-size: 14px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.buttonaccept {
+  background-color: #4B4B4B;
+  text-align:  center;
+  margin: 10px;
+  width: 100px;
+  margin-bottom: 10px;
+  padding: 5px 6px;
+  border-radius: 15px;
 }
