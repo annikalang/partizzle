@@ -82,6 +82,16 @@ puts 'creating multiple types of parties for bookings'
   )
   booking.save!
 end
+
+# 8.times do
+#   review = Review.new(
+#     content: ["Had a great time there!", "DON'T GO THERE!!", "Had the best time there!"],
+#     rating: (0..5).to_a.sample,
+#     booking: Booking.all.sample,
+#   )
+#   booking.save!
+# end
+
 # user = User.create(email:"juansolano1034@gmail.com",password:"123456",phone_number: "4157699904",first_name:"Juan",last_name:"Solano")
 # user1 = User.create(email:"annika1034@gmail.com",password:"1234567",phone_number: "4157699908",first_name:"Annika",last_name:"Lang")
 # Location.create(user: user1,address: "10 theodorus Magistrat",title: "dungeon for rent",size: 100,description: "Amazing place for crazy parties",price: 300,tags: ["open","big","space"])
