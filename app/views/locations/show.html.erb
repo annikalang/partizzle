@@ -25,7 +25,7 @@
              </div>
 
              <div class="col-6 owner-info">
-              <%= image_tag('avatar.png', witdth: 50, height: 50, alt: "User's avatar") %>
+              <%= image_tag('ximena.png', witdth: 50, height: 50, alt: "User's avatar", class: "avatarpic") %>
               <p>owned by <%=@user.first_name%> <%=@user.last_name%></p>
             </div>
           </div>
@@ -105,7 +105,7 @@
     <div class="review-card">
       <div class="row">
         <div class="review-user-info">
-          <%= image_tag('avatar2.png', witdth: 80, height: 80, alt: "User's avatar") %>
+          <%= image_tag('annika.jpg', witdth: 80, height: 80, alt: "User's avatar", class: "avatarpic") %>
          <p> <strong> <%= review.booking.user.first_name %> <%= review.booking.user.last_name %></strong></p>
        </div>
        <div class="rating-content">
