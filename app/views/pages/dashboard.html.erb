@@ -22,22 +22,21 @@
     <div class="contain2">
       <h3>My Locations:</h3>
         <div class="contain2.1">
-          <div class="row">
-            <%@my_locations.each do |location|%>
-              <div class="col-lg-3 col-md-6 col-sm-6">
-                <div class="cards-mine">
-                  <%= cl_image_tag location.photo, height: 200, width: 300, crop: :fill %>
-                  <div class="cards-mine-description">
-                    <h4><%= link_to location.title, location_path(location)%></h4>
-                    <br>
-                    <p><%=location.address%></p>
-                    <p><%=location.description%></p>
-                    <h6><%=location.price%>,00€ / night</h6>
+            <div class="row">
+              <%@my_locations.each do |location|%>
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                  <div class="cards-mine">
+                    <%=link_to (cl_image_tag location.photo), location_path(location), height: 200, width: 300, crop: :fill %>
+                    <div class="cards-mine-description">
+                      <h4><%= link_to location.title, location_path(location)%></h4>
+                      <p><%=location.address%></p>
+                      <p><%=location.description%></p>
+                      <h6><%=location.price%>,00€ / night</h6>
+                    </div>
                   </div>
                 </div>
-              </div>
-            <% end %>
-          </div>
+              <% end %>
+            </div>
         </div>
       </div>
     </div>
@@ -48,18 +47,26 @@
             <%@received_bookings.each do |booking|%>
               <div class="col-lg-3 col-md-6 col-sm-6">
                 <div class="cards-mine1">
-                    <%= cl_image_tag booking.location.photo, height: 200, width: 300, crop: :fill %>
+                  <%=link_to cl_image_tag booking.location.photo, height: 200, width: 300, crop: :fill %>
                   <div class="cards-mine-description">
                     <h4><%=booking.location.title%></h4>
                     <p><%= booking.user.first_name %> <%= booking.user.last_name %></p>
                     <p><%= booking.type_of_party %></p>
                     <p><%=booking.location.address%></p>
                     <p><%=booking.location.description%></p>
-                    <p><%= booking.location.size %> sqm</p>
                     <p><%= booking.start_time %></p>
                     <p><%= booking.end_time %></p>
                     <p><%=booking.location.price%>,00€ / night</p>
                     <h6><%=booking.status%></h6>
+                    </div>
+                    <div class= "declineaccept">
+                      <div class="buttonaccept">
+                      <%=link_to "Accept"%>
+                      </div>
+                      <div class="buttonaccept">
+                      <%=link_to "Decline"%>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -75,7 +82,7 @@
             <%@my_bookings.each do |booking|%>
               <div class="col-lg-3 col-md-6 col-sm-6">
                 <div class="cards-mine1">
-                    <%= cl_image_tag booking.location.photo, height: 200, width: 300, crop: :fill %>
+                   <%=link_to cl_image_tag booking.location.photo, height: 200, width: 300, crop: :fill %>
                   <div class="cards-mine-description">
                     <h4><%=booking.location.title%></h4>
                     <p><%= booking.location.address %></p>
