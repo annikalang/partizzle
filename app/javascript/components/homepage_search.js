@@ -34,7 +34,6 @@ const generateCards = () => {
     random.price_tag = card.querySelector(".price_tag").innerText
     imStupid.push(random);
   })
-  console.log(imStupid)
 }
 
 const sel = document.getElementById("dropdown");
@@ -43,7 +42,6 @@ const activateSelect = () => {
   sel.onchange = function(){
     const text = sel.options[sel.selectedIndex].text;
     imStupid.forEach((obj) => {
-      console.log(obj)
       if (text == "") {
         obj.html.style.display = "";
       } else if (text == obj.price_tag) {
@@ -80,3 +78,41 @@ function myFunction() {
     navbar.classList.remove("sticky");
   }
 }
+
+const cards = document.querySelectorAll(".cards");
+const imGenius = [];
+
+const pushCards = () => {
+  cards.forEach((card) => {
+    random = new Object;
+    random.html = card
+    random.rating = card.querySelector(".review-cards-f").innerText
+    imGenius.push(random);
+  })
+}
+const selection = document.getElementById("dropdown_reviews");
+const activate = () => {
+  selection.onchange = function(){
+    const text_review = selection.options[selection.selectedIndex].text;
+    console.log(text_review)
+    imGenius.forEach((obj) => {
+      console.log(obj.rating)
+      if (text_review == "") {
+        obj.html.style.display = "";
+      } else if (text_review.length == obj.rating.length - 8) {
+        obj.html.style.display = "";
+      } else {
+        obj.html.style.display = "none";
+      }
+    })
+  };
+}
+
+const activate_everything= () => {
+  pushCards();
+  activate();
+}
+
+activate_everything();
+
+

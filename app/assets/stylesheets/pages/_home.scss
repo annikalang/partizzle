@@ -92,7 +92,7 @@ html {
   text-align: right;
   color: #4B4B4B;
   padding-right: 20px;
-  padding-top: 30px;
+  padding-top: 0px;
 }
 
 // input {
@@ -343,6 +343,7 @@ ul{
   margin-top: 100px;
   display: inline-flex;
   justify-content: space-between;
+  margin-right: 10px;
 }
 
 .filter h3{
@@ -392,6 +393,20 @@ padding-bottom: 20px;
 .col-md-8 h1{
   text-align: center;
   padding-top: 20px;
+}
+
+.review-cards-f{
+  display: inline-flex;
+}
+.pineapple-rating{
+  display: inline-flex;
+}
+
+.price_tag {
+  position: absolute;
+  bottom: 3px;
+  width: 150px;
+  right: 20px;
 }
 
 .declineaccept {

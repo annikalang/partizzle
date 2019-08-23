@@ -4,8 +4,33 @@
 
     <!-- LOCATION DESCRIPTION, MAP & BOOKING FORM NEXT TO EACH OTHER -->
 
-    <div class="container-description-map-booking">
+ <div class="container-description-map-booking">
       <div class="row">
+
+      <!-- LOCATION INFO -->
+      <div class="col-4">
+        <div class="location-info">
+          <div class="container2">
+           <h1><%=@location.title.capitalize%></h1>
+           <div class = "content">
+             <p><strong>Description: </strong><%=@location.description%></p>
+             <ul>
+              <li><strong>Address: </strong><%=@location.address%></li>
+              <li><strong>Size: </strong><%=@location.size%>m2</li>
+              <li><strong>Price: € </strong><%=@location.price%></li>
+            </ul>
+            <h3>Tags: </h3>
+            <ol>
+              <%@location.tags.each do |tags|%>
+              <li><%="#" + tags%>
+               <%end%>
+             </ol>
+             <%= image_tag('avatar.png', witdth: 50, height: 50, alt: "User's avatar") %>
+             <p><%=@user.first_name%></p>
+           </div>
+         </div>
+       </div>
+     </div>
 
 
         <!-- LOCATION INFO -->
@@ -96,13 +121,12 @@
  </div>
 </div>
 
-<!-- REVIEWS -->
 <div class="col-6 review-container">
+
   <h2>What others had to say about <%= @location.title %></h2>
 
   <div class="review-cards-container">
     <% @location.reviews.each do |review| %>
-
     <div class="review-card">
       <div class="row">
         <div class="review-user-info">
