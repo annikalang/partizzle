@@ -6,24 +6,30 @@ Location.destroy_all
 User.destroy_all
 
 puts 'Creating seeds for user,location and booking...'
-mails = ["test@test.org", "test@test.de", "test@test.com", "test@test.us", "test@test.net"]
+
+mails = ["annika@test.com", "jp@test.com"]
+first_names = ["Annika", "JP"]
+last_names = ["Lang", "Solano"]
+
 puts 'creating users'
-mails.each do |mail|
+
+mails.each_with_index do |mail, i|
   user = User.new(
     email: mail,
     password: "123456",
     phone_number: Faker::PhoneNumber.phone_number_with_country_code,
-    first_name: Faker::Name.first_name,
-    last_name: Faker::Name.last_name
+    first_name: first_names[i],
+    last_name: last_names[i]
   )
   user.save!
 end
 
-addresses = ["Pariser Platz, 10117 Berlin, Germany",
+addresses =
+ ["Pariser Platz, 10117 Berlin, Germany",
   "Overblaak 70, 3011 MH Rotterdam",
   "Westermarkt 20, 1016 GV Amsterdam",
-  "Place Charles de Gaulle, 75008 Paris, France",
-  "Piazza di Trevi, 00187 Roma RM, Italy",
+  "9 Rue Mandar, 75002 Paris, France",
+  "Viale Vaticano, 00165 Roma RM, Italy",
   "Carnegieplein 2, 2517 KJ Den Haag",
   "Cra. 6 ##15-88, Bogotá, Colombia",
   "Zaventemweg 3, 1043 EH Amsterdam"]
