@@ -7,32 +7,6 @@
  <div class="container-description-map-booking">
       <div class="row">
 
-      <!-- LOCATION INFO -->
-      <div class="col-4">
-        <div class="location-info">
-          <div class="container2">
-           <h1><%=@location.title.capitalize%></h1>
-           <div class = "content">
-             <p><strong>Description: </strong><%=@location.description%></p>
-             <ul>
-              <li><strong>Address: </strong><%=@location.address%></li>
-              <li><strong>Size: </strong><%=@location.size%>m2</li>
-              <li><strong>Price: € </strong><%=@location.price%></li>
-            </ul>
-            <h3>Tags: </h3>
-            <ol>
-              <%@location.tags.each do |tags|%>
-              <li><%="#" + tags%>
-               <%end%>
-             </ol>
-             <%= image_tag('avatar.png', witdth: 50, height: 50, alt: "User's avatar") %>
-             <p><%=@user.first_name%></p>
-           </div>
-         </div>
-       </div>
-     </div>
-
-
         <!-- LOCATION INFO -->
         <div class="col-md-4 col-sm-12">
           <div class="container-description">
@@ -127,19 +101,22 @@
 
   <div class="review-cards-container">
     <% @location.reviews.each do |review| %>
+
     <div class="review-card">
       <div class="row">
         <div class="review-user-info">
-          <%= image_tag('avatar.png', witdth: 80, height: 80, alt: "User's avatar") %>
-         <p><%= review.booking.user.first_name %> <%= review.booking.user.last_name %></p>
+          <%= image_tag('avatar2.png', witdth: 80, height: 80, alt: "User's avatar") %>
+         <p> <strong> <%= review.booking.user.first_name %> <%= review.booking.user.last_name %></strong></p>
        </div>
-       <p id = "pineapple-rating">
-       <% review.rating.to_i.times do  %>
-       🍍
+       <div class="rating-content">
+       <p id = "pineapple-rating"> <strong>Rating:</strong>
+         <% review.rating.to_i.times do  %>
+          🍍
+         <% end %>
        </p>
-       <% end %>
        <br>
        <p><%= review.content %></p>
+     </div>
      </div>
    </div>
    <% end %>
