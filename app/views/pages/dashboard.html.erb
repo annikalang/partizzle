@@ -1,7 +1,7 @@
 
 
 <div class="banner2">
-  <img class="avatarpic" src="https://images.unsplash.com/photo-1529068755536-a5ade0dcb4e8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=801&q=80/200" width="300" height="300">
+  <img <%= image_tag('jp_picture_final.jpg', witdth: 100, height: 350, alt: "User's avatar", class: "avatarpic") %>
   <div class="details">
     <h1><%=current_user.first_name%> <%=current_user.last_name%></h1>
     <p><%=current_user.email%></p>
