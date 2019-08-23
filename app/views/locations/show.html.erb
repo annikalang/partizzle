@@ -44,27 +44,30 @@
     </div>
 
     <!-- MAP -->
+    <div id="map"></div>
     <div class="col-md-4 padding-none col-sm-12">
       <div class="map">
-        <div id="map">
-          <script src=<%= "https://maps.googleapis.com/maps/api/js?key=#{Rails.application.credentials.google_maps_api_key}&libraries=geometry" %>>
-          </script>
-          <script>
-            var locationLat = parseFloat(<%= @location.latitude %>, 10)
-            var locationLng = parseFloat(<%= @location.longitude %>, 10)
-            var positionmarker = {lat: locationLat, lng: locationLng};
+        <p style="display: none;" id="latitude-marker"><%= @location.latitude %></p>
+        <p style="display: none;" id="longitude-marker"><%= @location.longitude %></p>
+        <script src=<%= "https://maps.googleapis.com/maps/api/js?key=#{Rails.application.credentials.google_maps_api_key}&libraries=geometry" %>>
+        </script>
+        <script>
+          var locationLat = parseFloat(document.getElementById('latitude-marker').innerText, 10);
+          var locationLng = parseFloat(document.getElementById('longitude-marker').innerText, 10);
+          var positionmarker = {lat: locationLat, lng: locationLng};
+          const rawMap = document.getElementById('map');
+          map = new google.maps.Map(rawMap, {
+            center: positionmarker,
+            zoom: 13
+          });
 
-            map = new google.maps.Map(document.getElementById('map'), {
-              center: {lat: locationLat, lng: locationLng},
-              zoom: 13});
-            var marker = new google.maps.Marker({
-              position: positionmarker,
-              title:"Hello World!"
-            });
-            marker.setMap(map)
+          var marker = new google.maps.Marker({
+            position: positionmarker,
+            title:"Hello World!"
+          });
+          marker.setMap(map)
 
-          </script>
-        </div>
+        </script>
       </div>
     </div>
 
@@ -179,27 +182,7 @@
 </div> -->
 
 <!--  locations.location_lat  locations.location_lng -->
-<div id="mapcard">
-  <div id="map">
-    <script src=<%= "https://maps.googleapis.com/maps/api/js?key=#{Rails.application.credentials.google_maps_api_key}&libraries=geometry" %>>
-    </script>
-    <script>
-      var locationLat = parseFloat(<%= @location.latitude %>, 10)
-      var locationLng = parseFloat(<%= @location.longitude %>, 10)
-      var positionmarker = {lat: locationLat, lng: locationLng};
 
-      map = new google.maps.Map(document.getElementById('map'), {
-        center: {lat: locationLat, lng: locationLng},
-        zoom: 13});
-      var marker = new google.maps.Marker({
-        position: positionmarker,
-        title:"Hello World!"
-      });
-      marker.setMap(map)
-
-    </script>
-  </div>
-</div>
 
 <div class="footer">
   <div class="footer-links">

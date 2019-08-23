@@ -5,7 +5,7 @@ class Location < ApplicationRecord
   belongs_to :user
   has_many :reviews, through: :bookings
 
-  # before_save :coordinates
+  before_save :coordinates
 
   validates :address, presence: true
   validates :title, presence: true
@@ -20,19 +20,18 @@ class Location < ApplicationRecord
 
   def coordinates
     # The API URL: you may wanna add URI.encode() around location.address for URL encoding
-    url_string = "https://maps.googleapis.com/maps/api/geocode/json?address=#{location.address},+CA&key=#{Rails.application.credentials.google_maps_api_key}"
+    url_string = "https://nominatim.openstreetmap.org/search?q=#{self.address}&format=json"
     # Make URI object out of URL string
-    url = URI.parse(url_string)
-    # Set up request
-    req = Net::HTTP::Get.new(url.to_s)
-    res = Net::HTTP.start(url.host, url.port) {|http|
-      http.request(req)
-    }
+    uri = URI.parse(url_string)
+    response = Net::HTTP.get(uri)
     # Parse json from API
-    json = JSON.parse(res.body)
+    json = JSON.parse(response)
+    puts json
     # Assign response fields to your model's lat and long properties
-    self.lat = json['latitude']
-    self.long = json['longitude']
+    unless json[0].nil?
+      self.latitude = json[0]['lat'].to_f
+      self.longitude = json[0]['lon'].to_f
+    end
     # api call
     # latitude goes in self.latitude
     # longitude goes in self.longitude

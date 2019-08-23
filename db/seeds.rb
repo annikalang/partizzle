@@ -28,10 +28,9 @@ addresses =
  ["Pariser Platz, 10117 Berlin, Germany",
   "Overblaak 70, 3011 MH Rotterdam",
   "Westermarkt 20, 1016 GV Amsterdam",
-  "9 Rue Mandar, 75002 Paris, France",
+  "Rue Mandar 9, 75002 Paris, France",
   "Viale Vaticano, 00165 Roma RM, Italy",
   "Carnegieplein 2, 2517 KJ Den Haag",
-  "Cra. 6 ##15-88, Bogotá, Colombia",
   "Zaventemweg 3, 1043 EH Amsterdam"]
 
 descriptions = ["Very spacious and clean, in a great location and amazing decoration.",
