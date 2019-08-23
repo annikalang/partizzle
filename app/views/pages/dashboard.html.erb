@@ -47,9 +47,9 @@
             <%@received_bookings.each do |booking|%>
               <div class="col-lg-3 col-md-6 col-sm-6">
                 <div class="cards-mine1">
-                  <%=link_to cl_image_tag booking.location.photo, height: 200, width: 300, crop: :fill %>
+                  <a href=<%= location_path(booking.location) %>><%= cl_image_tag booking.location.photo, height: 200, width: 300, crop: :fill %></a>
                   <div class="cards-mine-description">
-                    <h4><%=booking.location.title%></h4>
+                    <h4><%= link_to booking.location.title, location_path(booking.location)%></h4>
                     <p><%= booking.user.first_name %> <%= booking.user.last_name %></p>
                     <p><%= booking.type_of_party %></p>
                     <p><%=booking.location.address%></p>
@@ -82,9 +82,9 @@
             <%@my_bookings.each do |booking|%>
               <div class="col-lg-3 col-md-6 col-sm-6">
                 <div class="cards-mine1">
-                   <%=link_to cl_image_tag booking.location.photo, height: 200, width: 300, crop: :fill %>
+                   <a href=<%= location_path(booking.location) %>><%= cl_image_tag booking.location.photo, height: 200, width: 300, crop: :fill %></a>
                   <div class="cards-mine-description">
-                    <h4><%=booking.location.title%></h4>
+                   <h4><%= link_to booking.location.title, location_path(booking.location)%></h4>
                     <p><%= booking.location.address %></p>
                     <p><%=booking.location.description%></p>
                     <p><%= booking.location.size %> sqm</p>
