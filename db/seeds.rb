@@ -7,9 +7,9 @@ User.destroy_all
 
 puts 'Creating seeds for user,location and booking...'
 
-mails = ["annika@test.com", "jp@test.com"]
-first_names = ["Annika", "JP"]
-last_names = ["Lang", "Solano"]
+mails = ["annika@test.com", "jp@test.com", "ximena@test.com", "theresa@test.com"]
+first_names = ["Annika", "JP", "Ximena", "Theresa"]
+last_names = ["Lang", "Solano", "De la Camara", "Kruse"]
 
 puts 'creating users'
 
